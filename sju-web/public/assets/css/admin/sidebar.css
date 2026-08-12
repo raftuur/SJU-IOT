@@ -1,0 +1,139 @@
+/* ===========================================================
+   SIDEBAR
+=========================================================== */
+
+.sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    width:280px;
+    height:100vh;
+    background:#FFFFFF;
+    border-right:1px solid #E2E8F0;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    padding:24px;
+}
+
+/* ===========================================================
+   BRAND
+=========================================================== */
+
+.sidebar-brand{
+    text-align:center;
+    padding-bottom:24px;
+    border-bottom:1px solid #E2E8F0;
+}
+
+.sidebar-logo{
+    width:72px;
+    height:72px;
+    margin:auto;
+    border-radius:18px;
+    background:#16A34A;
+    color:#FFFFFF;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:28px;
+    font-weight:700;
+}
+
+.sidebar-title{
+    margin-top:16px;
+    font-size:18px;
+    font-weight:700;
+    color:#0F172A;
+}
+
+/* ===========================================================
+   MENU
+=========================================================== */
+
+.sidebar-menu{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:30px;
+}
+
+.sidebar-link{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:14px 18px;
+    border-radius:14px;
+    color:#334155;
+    text-decoration:none;
+    font-weight:500;
+    transition:.25s;
+}
+
+.sidebar-link i{
+    font-size:18px;
+}
+
+.sidebar-link:hover{
+    background:#F0FDF4;
+    color:#16A34A;
+    transform:translateX(4px);
+}
+
+.sidebar-link.active{
+    background:#16A34A;
+    color:#FFFFFF;
+    box-shadow:0 8px 20px rgba(22,163,74,.25);
+}
+
+/* ===========================================================
+   PROFILE
+=========================================================== */
+
+.sidebar-profile{
+    border-top:1px solid #E2E8F0;
+    padding-top:20px;
+}
+
+.profile-name{
+    font-weight:700;
+    color:#0F172A;
+}
+
+.profile-email{
+    font-size:13px;
+    color:#64748B;
+    margin-top:4px;
+}
+
+.sidebar-logout{
+    width:100%;
+    margin-top:18px;
+    border:none;
+    background:#EF4444;
+    color:#FFFFFF;
+    padding:12px;
+    border-radius:12px;
+    transition:.25s;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.sidebar-logout:hover{
+    background:#DC2626;
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media (max-width:992px){
+    .sidebar{
+        transform:translateX(-100%);
+    }
+}

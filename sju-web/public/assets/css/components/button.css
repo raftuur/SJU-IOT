@@ -1,0 +1,153 @@
+/* ===========================================================
+   BUTTON BASE
+=========================================================== */
+
+.btn-custom{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:10px 18px;
+    border:none;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    text-decoration:none;
+    transition:all .25s ease;
+    transform:translateY(0);
+}
+
+/* ===========================================================
+   PRIMARY
+=========================================================== */
+
+.btn-primary-custom{
+    background:#16A34A;
+    color:#FFFFFF;
+}
+
+.btn-primary-custom:hover{
+    background:#15803D;
+    color:#FFFFFF;
+    transform:translateY(-2px);
+}
+
+/* ===========================================================
+   SECONDARY
+=========================================================== */
+
+.btn-secondary-custom{
+    background:#F1F5F9;
+    color:#334155;
+}
+
+.btn-secondary-custom:hover{
+    background:#E2E8F0;
+    transform:translateY(-2px);
+}
+
+/* ===========================================================
+   INFO
+=========================================================== */
+
+.btn-info-custom{
+    background:#2563EB;
+    color:#FFFFFF;
+}
+
+.btn-info-custom:hover{
+    background:#1D4ED8;
+    transform:translateY(-2px);
+}
+
+/* ===========================================================
+   WARNING
+=========================================================== */
+
+.btn-warning-custom{
+    background:#F59E0B;
+    color:#FFFFFF;
+}
+
+.btn-warning-custom:hover{
+    background:#D97706;
+    transform:translateY(-2px);
+}
+
+/* ===========================================================
+   DANGER
+=========================================================== */
+
+.btn-danger-custom{
+    background:#EF4444;
+    color:#FFFFFF;
+}
+
+.btn-danger-custom:hover{
+    background:#DC2626;
+    transform:translateY(-2px);
+}
+
+/* ===========================================================
+   OUTLINE
+=========================================================== */
+
+.btn-outline-custom{
+    background:#FFFFFF;
+    color:#334155;
+    border:1px solid #CBD5E1;
+}
+
+.btn-outline-custom:hover{
+    background:#F8FAFC;
+    transform:translateY(-2px);
+}
+
+/* ===========================================================
+   ICON BUTTON
+=========================================================== */
+
+.btn-icon{
+    width:42px;
+    height:42px;
+    padding:0;
+    border-radius:12px;
+}
+
+/* ===========================================================
+   SMALL
+=========================================================== */
+
+.btn-sm-custom{
+    padding:8px 14px;
+    font-size:13px;
+}
+
+/* ===========================================================
+   LARGE
+=========================================================== */
+
+.btn-lg-custom{
+    padding:14px 26px;
+    font-size:15px;
+}
+
+/* ===========================================================
+   FOCUS
+=========================================================== */
+
+.btn-custom:focus{
+    outline:none;
+    box-shadow:0 0 0 3px rgba(22,163,74,.15);
+}
+
+/* ===========================================================
+   DISABLED
+=========================================================== */
+
+.btn-custom:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+    pointer-events:none;
+}

@@ -1,0 +1,40 @@
+/* ===========================================================
+   BREADCRUMB
+=========================================================== */
+
+.breadcrumb-custom{
+    display:flex;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+.breadcrumb-custom li{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+}
+
+.breadcrumb-custom li a{
+    color:#64748B;
+    text-decoration:none;
+    transition:.2s;
+}
+
+.breadcrumb-custom li a:hover{
+    color:#16A34A;
+}
+
+.breadcrumb-custom li.active{
+    color:#0F172A;
+    font-weight:600;
+}
+
+.breadcrumb-custom li+li::before{
+    content:"/";
+    color:#CBD5E1;
+}

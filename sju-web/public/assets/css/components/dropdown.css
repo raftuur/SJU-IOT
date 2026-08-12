@@ -1,0 +1,59 @@
+/* ===========================================================
+   DROPDOWN MENU
+=========================================================== */
+
+.dropdown-menu{
+
+    min-width:180px;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:8px;
+
+    box-shadow:0 12px 30px rgba(15,23,42,.10);
+
+}
+
+.dropdown-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    color:#334155;
+
+    transition:all .2s ease;
+
+}
+
+.dropdown-item i{
+
+    font-size:16px;
+
+}
+
+.dropdown-item:hover{
+
+    background:#F8FAFC;
+
+    color:#16A34A;
+
+}
+
+.dropdown-item.text-danger:hover{
+
+    background:#FEF2F2;
+
+    color:#DC2626;
+
+}

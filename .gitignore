@@ -1,0 +1,10 @@
+@"
+ai-service/.venv/
+sju-web/node_modules/
+sju-web/writable/
+.env
+ai-service/.env
+sju-web/.env
+__pycache__/
+*.pyc
+"@ | Set-Content .gitignore

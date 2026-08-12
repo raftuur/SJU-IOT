@@ -1,0 +1,70 @@
+/* ===========================================================
+   PAGE HEADER
+=========================================================== */
+
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:32px;
+    margin-bottom:36px;
+}
+
+.page-header-left{
+    flex:1;
+    min-width:0;
+}
+
+.page-header-right{
+    display:flex;
+    align-items:flex-start;
+    justify-content:flex-end;
+    flex-shrink:0;
+}
+
+/* ===========================================================
+   TITLE
+=========================================================== */
+
+.page-title{
+    margin:0;
+    font-size:44px;
+    font-weight:700;
+    line-height:1.2;
+    color:#0F172A;
+}
+
+.page-subtitle{
+    margin:12px 0;
+    font-size:17px;
+    line-height:1.7;
+    color:#64748B;
+}
+
+/* ===========================================================
+   ACTION
+=========================================================== */
+
+.page-header-right .btn-custom{
+    min-width:170px;
+    height:48px;
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media (max-width:992px){
+
+    .page-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .page-header-right{
+        width:100%;
+        justify-content:flex-start;
+    }
+
+}

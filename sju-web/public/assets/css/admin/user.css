@@ -1,0 +1,82 @@
+/* ===========================================================
+   FILTER CARD
+=========================================================== */
+
+.filter-card{
+    background:#FFFFFF;
+    border:1px solid var(--border);
+    border-radius:18px;
+    overflow:hidden;
+    margin-bottom:24px;
+}
+
+.filter-header{
+    padding:18px 24px;
+    border-bottom:1px solid #EEF2F7;
+}
+
+.filter-header h5{
+    margin:0;
+    font-size:18px;
+    font-weight:700;
+    color:var(--dark);
+}
+
+.filter-body{
+    padding:24px;
+}
+
+/* ===========================================================
+   FILTER GRID
+=========================================================== */
+
+.filter-grid{
+    display:grid;
+    grid-template-columns:2.2fr 1fr 1fr auto;
+    gap:20px;
+    align-items:end;
+}
+
+.filter-item{
+    display:flex;
+    flex-direction:column;
+}
+
+/* ===========================================================
+   FILTER ACTION
+=========================================================== */
+
+.filter-action{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.filter-action .btn-custom{
+    height:48px;
+}
+
+.filter-action .btn-primary-custom{
+    min-width:120px;
+}
+
+.filter-action .btn-icon{
+    width:48px;
+    height:48px;
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media (max-width:992px){
+
+    .filter-grid{
+        grid-template-columns:1fr;
+    }
+
+    .filter-action{
+        justify-content:flex-start;
+    }
+
+}

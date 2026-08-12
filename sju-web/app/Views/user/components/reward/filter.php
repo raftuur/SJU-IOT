@@ -1,0 +1,118 @@
+<form method="get" action="<?= site_url('user/reward'); ?>">
+
+    <div class="filter-card">
+
+        <div class="filter-header">
+
+            <h5>
+
+                <i class="bi bi-funnel me-2"></i>
+
+                Filter Reward
+
+            </h5>
+
+        </div>
+
+        <div class="filter-body">
+
+            <div class="filter-grid">
+
+                <div class="filter-item filter-search">
+
+                    <label>
+
+                        Cari Reward
+
+                    </label>
+
+                    <div class="search-box">
+
+                        <i class="bi bi-search"></i>
+
+                        <input
+                            type="text"
+                            name="search"
+                            class="form-control-custom"
+                            placeholder="Cari kode redemption..."
+                            value="<?= esc($search ?? '') ?>">
+
+                    </div>
+
+                </div>
+
+                <div class="filter-item">
+
+                    <label>
+
+                        Status
+
+                    </label>
+
+                    <select
+                        name="status"
+                        class="form-select-custom">
+
+                        <option value="">
+
+                            Semua Status
+
+                        </option>
+
+                        <option
+                            value="pending"
+                            <?= ($status ?? '') == 'pending' ? 'selected' : '' ?>>
+
+                            Pending
+
+                        </option>
+
+                        <option
+                            value="completed"
+                            <?= ($status ?? '') == 'completed' ? 'selected' : '' ?>>
+
+                            Completed
+
+                        </option>
+
+                        <option
+                            value="rejected"
+                            <?= ($status ?? '') == 'rejected' ? 'selected' : '' ?>>
+
+                            Rejected
+
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="filter-action">
+
+                    <button
+                        type="submit"
+                        class="btn-search">
+
+                        <i class="bi bi-search"></i>
+
+                        Cari
+
+                    </button>
+
+                    <a
+                        href="<?= site_url('user/reward'); ?>"
+                        class="btn-reset">
+
+                        <i class="bi bi-arrow-clockwise"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</form>

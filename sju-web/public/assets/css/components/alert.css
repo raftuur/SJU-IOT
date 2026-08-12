@@ -1,0 +1,85 @@
+/* ===========================================================
+   ALERT
+=========================================================== */
+
+.alert-custom{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:16px 20px;
+
+    margin-bottom:24px;
+
+    border-radius:14px;
+
+    border:1px solid transparent;
+
+    font-size:15px;
+
+    font-weight:500;
+
+    animation:fadeIn .3s ease;
+
+}
+
+.alert-custom i{
+
+    font-size:20px;
+
+}
+
+/* ===========================================================
+   SUCCESS
+=========================================================== */
+
+.alert-success{
+
+    background:#ECFDF5;
+
+    color:#166534;
+
+    border-color:#BBF7D0;
+
+}
+
+/* ===========================================================
+   ERROR
+=========================================================== */
+
+.alert-danger{
+
+    background:#FEF2F2;
+
+    color:#991B1B;
+
+    border-color:#FECACA;
+
+}
+
+/* ===========================================================
+   ANIMATION
+=========================================================== */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-10px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}

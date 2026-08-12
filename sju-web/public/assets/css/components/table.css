@@ -1,0 +1,136 @@
+/* ===========================================================
+   TABLE
+=========================================================== */
+
+.table-responsive{
+    overflow-x:auto;
+}
+
+.custom-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.custom-table thead{
+    background:#F8FAFC;
+}
+
+.custom-table thead th{
+    padding:18px 24px;
+    text-align:left;
+    font-size:14px;
+    font-weight:600;
+    color:#64748B;
+    border-bottom:1px solid #E2E8F0;
+    white-space:nowrap;
+}
+
+.custom-table tbody td{
+    padding:20px 24px;
+    vertical-align:middle;
+    border-bottom:1px solid #EEF2F7;
+}
+
+.custom-table tbody tr{
+    transition:.25s;
+}
+
+.custom-table tbody tr:hover{
+    background:#F8FAFC;
+}
+
+/* ===========================================================
+   USER
+=========================================================== */
+
+.user-info{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.user-avatar{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:#16A34A;
+    color:#FFFFFF;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:700;
+    flex-shrink:0;
+}
+
+.user-name{
+    font-size:16px;
+    font-weight:700;
+    color:#0F172A;
+}
+
+.user-email{
+    margin-top:3px;
+    font-size:13px;
+    color:#64748B;
+}
+
+/* ===========================================================
+   ALIGNMENT
+=========================================================== */
+
+.text-center{
+    text-align:center;
+}
+
+.text-nowrap{
+    white-space:nowrap;
+}
+
+/* ===========================================================
+   ACTION
+=========================================================== */
+
+.table-action{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+}
+
+.table-action .btn-custom{
+    width:36px;
+    height:36px;
+    padding:0;
+    border-radius:10px;
+}
+
+/* ===========================================================
+   FOOTER
+=========================================================== */
+
+.table-footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px 24px;
+    border-top:1px solid #EEF2F7;
+}
+
+.table-pagination{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+@media (max-width:768px){
+
+    .custom-table{
+        min-width:850px;
+    }
+
+}

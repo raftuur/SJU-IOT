@@ -1,0 +1,99 @@
+/* ===========================================================
+   QR CODE PAGE
+=========================================================== */
+
+.qr-wrapper{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.qr-box{
+
+    width:260px;
+
+    height:260px;
+
+    background:#FFFFFF;
+
+    border:2px dashed #16A34A;
+
+    border-radius:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.qr-box img{
+
+    width:220px;
+
+    height:220px;
+
+}
+
+.qr-box i{
+
+    font-size:120px;
+
+    color:#16A34A;
+
+}
+
+.qr-info table th{
+
+    width:140px;
+
+    color:#64748B;
+
+    font-weight:600;
+
+}
+
+.qr-info table td{
+
+    color:#0F172A;
+
+}
+
+.qr-action{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:24px;
+
+}
+
+.qr-action .btn{
+
+    min-width:160px;
+
+}
+
+@media(max-width:992px){
+
+    .qr-wrapper{
+
+        margin-bottom:30px;
+
+    }
+
+    .qr-action{
+
+        flex-direction:column;
+
+    }
+
+}
