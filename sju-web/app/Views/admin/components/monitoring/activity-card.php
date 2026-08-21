@@ -3,9 +3,7 @@
     <div class="card-header">
 
         <h5 class="card-title">
-
             Aktivitas Terbaru
-
         </h5>
 
     </div>
@@ -14,69 +12,46 @@
 
         <ul class="list-group list-group-flush">
 
-            <li class="list-group-item">
+            <?php if (!empty($activities)): ?>
 
-                <div class="d-flex justify-content-between">
+                <?php foreach ($activities as $activity): ?>
 
-                    <span>
-                        Machine Online
-                    </span>
+                    <li class="list-group-item">
 
-                    <small class="text-muted">
-                        16:20
-                    </small>
+                        <div class="d-flex justify-content-between gap-3">
 
-                </div>
+                            <span>
 
-            </li>
+                                <?= esc($activity['description']); ?>
 
-            <li class="list-group-item">
+                            </span>
 
-                <div class="d-flex justify-content-between">
+                            <small class="text-muted text-nowrap">
 
-                    <span>
-                        Botol Terdeteksi
-                    </span>
+                                <?= !empty($activity['created_at'])
+                                    ? date(
+                                        'H:i',
+                                        strtotime($activity['created_at'])
+                                    )
+                                    : '-'; ?>
 
-                    <small class="text-muted">
-                        16:21
-                    </small>
+                            </small>
 
-                </div>
+                        </div>
 
-            </li>
+                    </li>
 
-            <li class="list-group-item">
+                <?php endforeach; ?>
 
-                <div class="d-flex justify-content-between">
+            <?php else: ?>
 
-                    <span>
-                        Berat Terbaca 350 gr
-                    </span>
+                <li class="list-group-item text-muted text-center">
 
-                    <small class="text-muted">
-                        16:21
-                    </small>
+                    Belum ada aktivitas.
 
-                </div>
+                </li>
 
-            </li>
-
-            <li class="list-group-item">
-
-                <div class="d-flex justify-content-between">
-
-                    <span>
-                        Point +30
-                    </span>
-
-                    <small class="text-muted">
-                        16:22
-                    </small>
-
-                </div>
-
-            </li>
+            <?php endif; ?>
 
         </ul>
 

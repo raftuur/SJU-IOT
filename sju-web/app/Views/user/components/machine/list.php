@@ -9,23 +9,26 @@
                 $badgeClass = 'secondary';
                 $statusText = '';
 
-                switch ($machine['status']) {
+                if (!empty($machine['is_in_use'])) {
+                    $badgeClass = 'info';
+                    $statusText = 'Mesin sedang digunakan.';
+                } else {
+                    switch ($machine['status']) {
+                        case 'online':
+                            $badgeClass = 'success';
+                            $statusText = 'Mesin siap digunakan.';
+                            break;
 
-                    case 'online':
-                        $badgeClass = 'success';
-                        $statusText = 'Mesin siap digunakan.';
-                        break;
+                        case 'maintenance':
+                            $badgeClass = 'warning';
+                            $statusText = 'Mesin sedang dalam perbaikan.';
+                            break;
 
-                    case 'maintenance':
-                        $badgeClass = 'warning';
-                        $statusText = 'Mesin sedang dalam perbaikan.';
-                        break;
-
-                    default:
-                        $badgeClass = 'danger';
-                        $statusText = 'Mesin sedang tidak tersedia.';
-                        break;
-
+                        default:
+                            $badgeClass = 'danger';
+                            $statusText = 'Mesin sedang tidak tersedia.';
+                            break;
+                    }
                 }
 
             ?>
@@ -46,7 +49,11 @@
 
                         <span class="badge bg-<?= $badgeClass; ?>">
 
-                            <?= ucfirst($machine['status']); ?>
+                            <?php if (!empty($machine['is_in_use'])): ?>
+                                Digunakan
+                            <?php else: ?>
+                                <?= ucfirst($machine['status']); ?>
+                            <?php endif; ?>
 
                         </span>
 
@@ -112,14 +119,34 @@
 
                             </small>
 
-                            <a href="<?= site_url('user/machine/' . $machine['id']); ?>"
-                               class="btn btn-primary">
+                            <div class="d-flex gap-2">
 
-                                <i class="bi bi-eye me-1"></i>
+                                <a href="<?= site_url('user/machine/' . $machine['id']); ?>"
+                                   class="btn btn-primary">
 
-                                Lihat Detail
+                                    <i class="bi bi-eye me-1"></i>
 
-                            </a>
+                                    Lihat Detail
+
+                                </a>
+
+                                <?php if (
+                                    $machine['status'] === 'online'
+                                    && empty($machine['is_in_use'])
+                                ): ?>
+
+                                    <a href="<?= site_url('user/machine/' . $machine['id'] . '/use'); ?>"
+                                       class="btn btn-success">
+
+                                        <i class="bi bi-play-circle me-1"></i>
+
+                                        Gunakan Mesin
+
+                                    </a>
+
+                                <?php endif; ?>
+
+                            </div>
 
                         </div>
 

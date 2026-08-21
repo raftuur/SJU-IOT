@@ -131,7 +131,7 @@
                 <input
                     type="text"
                     class="form-control-custom"
-                    value="<?= ucfirst($machine['status']); ?>"
+                    value="<?= ucfirst($machine['realtime_status']); ?>"
                     readonly>
 
             </div>

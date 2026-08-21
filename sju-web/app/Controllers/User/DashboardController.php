@@ -98,10 +98,11 @@ class DashboardController extends BaseController
             'pageSubtitle'     => 'Selamat datang, ' . ($user['fullname'] ?? 'User'),
             'user'             => $user,
             'wallet'           => $wallet,
+            'totalPoint'       => (int) ($wallet['balance'] ?? 0),
+            'totalBottle'      => (int) $totalBottles,
+            'totalTransaction' => (int) $transactionCount,
+            'totalReward'      => (int) $redemptionCount,
             'transactions'     => $transactions,
-            'totalBottles'     => $totalBottles,
-            'transactionCount' => $transactionCount,
-            'redemptionCount'  => $redemptionCount,
         ]);
     }
 }

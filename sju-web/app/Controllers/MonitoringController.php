@@ -33,7 +33,7 @@ class MonitoringController extends BaseController
 
     public function show($id)
     {
-        $machine = $this->monitoringService->getMachineDetail($id);
+        $machine = $this->monitoringService->getMachineDetail((int) $id);
 
         if (!$machine) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(
@@ -41,11 +41,17 @@ class MonitoringController extends BaseController
             );
         }
 
+        $activities = $this->monitoringService->getMachineActivities(
+            (int) $id,
+            10
+        );
+
         return view('admin/monitoring/show', [
             'title'        => 'Monitoring Machine',
             'pageTitle'    => $machine['machine_code'],
             'pageSubtitle' => 'Monitoring realtime mesin Reverse Vending Machine.',
             'machine'      => $machine,
+            'activities'   => $activities,
         ]);
     }
 }

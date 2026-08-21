@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use App\Models\MachineModel;
+use App\Services\MonitoringService;
 
 class MachineController extends BaseController
 {
     protected $machineModel;
+    protected $monitoringService;
 
     public function __construct()
     {
         $this->machineModel = new MachineModel();
+        $this->monitoringService = new MonitoringService();
     }
 
     public function index()
@@ -41,6 +44,19 @@ class MachineController extends BaseController
         $machines = $builder
             ->orderBy('id', 'ASC')
             ->paginate($perPage);
+
+        foreach ($machines as &$machine) {
+            if ($machine['status'] === 'maintenance') {
+                $machine['realtime_status'] = 'maintenance';
+            } else {
+                $machine['realtime_status'] = $this->monitoringService->isMachineOnline(
+                    $machine['heartbeat_at']
+                )
+                    ? 'online'
+                    : 'offline';
+            }
+        }
+        unset($machine);
 
         $pager = $this->machineModel->pager;
 
@@ -105,7 +121,7 @@ class MachineController extends BaseController
 
     public function show($id)
     {
-        $machine = $this->machineModel->find($id);
+        $machine = $this->monitoringService->getMachineDetail((int) $id);
 
         if (!$machine) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound(

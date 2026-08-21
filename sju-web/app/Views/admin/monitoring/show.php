@@ -33,9 +33,19 @@
 
     <div class="col-lg-6">
 
+        <?= $this->include('admin/components/monitoring/live-camera-card'); ?>
+
+    </div>
+
+    <div class="col-lg-6">
+
         <?= $this->include('admin/components/monitoring/sensor-card'); ?>
 
     </div>
+
+</div>
+
+<div class="row g-4 mt-4">
 
     <div class="col-lg-6">
 

@@ -187,24 +187,55 @@ $routes->post('ai-detection/test', 'AiDetectionController::test', [
 ]);
 
 $routes->group('api', static function ($routes) {
-    $routes->post('machine/heartbeat', 'Api\MachineApiController::heartbeat');
-    $routes->post('machine/sensor', 'Api\MachineApiController::sensor');
-    $routes->post('machine/auth', 'Api\MachineApiController::authenticate');
-    
-    $routes->get('machine/session/(:any)', 'Api\MachineApiController::session/$1');
 
+    $routes->post(
+        'machine/heartbeat',
+        'Api\MachineHeartbeatController::heartbeat'
+    );
+
+    $routes->post(
+        'machine/sensor',
+        'Api\MachineApiController::sensor'
+    );
+
+    $routes->post(
+        'machine/auth',
+        'Api\MachineApiController::authenticate'
+    );
+
+    $routes->get(
+        'machine/session/(:any)',
+        'Api\MachineApiController::session/$1'
+    );
+
+    // BOTOL
+    $routes->post(
+        'machine/bottle-detected',
+        'Api\MachineApiController::bottleDetected'
+    );
+
+    $routes->get(
+        'machine/bottle-status/(:any)',
+        'Api\MachineApiController::bottleStatus/$1'
+    );
+
+    $routes->post(
+        'machine/process-bottle',
+        'Api\MachineApiController::processBottle'
+    );
+
+    // MACHINE SESSION
     $routes->group('machine-session', static function ($routes) {
-
         $routes->post('start', 'Api\MachineSessionController::start');
-
+        $routes->post('verify', 'Api\MachineSessionController::verify');
+        $routes->post('verify-qr', 'Api\MachineSessionController::verifyQr');
         $routes->post('progress', 'Api\MachineSessionController::progress');
-
         $routes->post('finish', 'Api\MachineSessionController::finish');
-
         $routes->post('cancel', 'Api\MachineSessionController::cancel');
-
-        $routes->get('status/(:any)', 'Api\MachineSessionController::status/$1');
-
+        $routes->get(
+            'status/(:any)',
+            'Api\MachineSessionController::status/$1'
+        );
     });
 });
 
@@ -213,6 +244,7 @@ $routes->group('user', ['filter' => 'auth'], function ($routes) {
     $routes->get('qrcode', 'User\QrCodeController::index');
     $routes->get('machine', 'User\MachineController::index');
     $routes->get('machine/(:num)', 'User\MachineController::show/$1');
+    $routes->get('machine/(:num)/use', 'User\MachineController::use/$1');
     $routes->get('wallet', 'User\WalletController::index');
 
     /*
@@ -242,8 +274,6 @@ $routes->group('user', ['filter' => 'auth'], function ($routes) {
 
     $routes->get('reward', 'User\RewardController::index');
     $routes->get('reward/(:num)', 'User\RewardController::show/$1');
-    
-    // $routes->get('redemption', 'User\RedemptionController::index');
 
     /*
     |--------------------------------------------------------------------------

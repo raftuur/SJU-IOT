@@ -1,5 +1,6 @@
 <div class="row g-4 mt-1">
 
+    <!-- MACHINE ONLINE -->
     <div class="col-xl-3 col-md-6">
 
         <div class="card">
@@ -11,14 +12,14 @@
                     <div>
 
                         <small class="text-muted">
-
                             Machine Online
-
                         </small>
 
                         <h3 class="fw-bold mt-2 mb-0">
 
-                            1
+                            <?= ($machine['realtime_status'] ?? 'offline') === 'online'
+                                ? 1
+                                : 0; ?>
 
                         </h3>
 
@@ -34,6 +35,8 @@
 
     </div>
 
+
+    <!-- BOTOL HARI INI -->
     <div class="col-xl-3 col-md-6">
 
         <div class="card">
@@ -45,14 +48,12 @@
                     <div>
 
                         <small class="text-muted">
-
                             Botol Hari Ini
-
                         </small>
 
                         <h3 class="fw-bold mt-2 mb-0">
 
-                            25
+                            <?= $machine['bottle_today'] ?? 0; ?>
 
                         </h3>
 
@@ -68,6 +69,8 @@
 
     </div>
 
+
+    <!-- BERAT HARI INI -->
     <div class="col-xl-3 col-md-6">
 
         <div class="card">
@@ -79,14 +82,15 @@
                     <div>
 
                         <small class="text-muted">
-
                             Berat Hari Ini
-
                         </small>
 
                         <h3 class="fw-bold mt-2 mb-0">
 
-                            8.4 Kg
+                            <?= number_format(
+                                $machine['weight_today'] ?? 0,
+                                2
+                            ); ?> Kg
 
                         </h3>
 
@@ -102,6 +106,8 @@
 
     </div>
 
+
+    <!-- POINT HARI INI -->
     <div class="col-xl-3 col-md-6">
 
         <div class="card">
@@ -113,14 +119,12 @@
                     <div>
 
                         <small class="text-muted">
-
                             Point Hari Ini
-
                         </small>
 
                         <h3 class="fw-bold mt-2 mb-0">
 
-                            750
+                            <?= $machine['point_today'] ?? 0; ?>
 
                         </h3>
 

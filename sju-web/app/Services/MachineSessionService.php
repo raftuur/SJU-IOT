@@ -70,25 +70,16 @@ class MachineSessionService extends BaseService
         $sessionToken = bin2hex(random_bytes(32));
 
         $data = [
-
             'uuid' => Uuid::uuid4()->toString(),
-
             'machine_id' => $machineId,
-
             'user_id' => $userId,
-
             'session_token' => $sessionToken,
-
             'status' => 'active',
-
+            'bottle_status' => 'none',
             'total_bottle' => 0,
-
             'total_weight' => 0,
-
             'total_point' => 0,
-
             'started_at' => date('Y-m-d H:i:s'),
-
         ];
 
         $this->machineSessionRepository->createSession($data);
@@ -105,16 +96,26 @@ class MachineSessionService extends BaseService
         float $weight,
         int $point
     ): bool {
-
         return $this->machineSessionRepository->updateSession($id, [
-
             'total_bottle' => $bottle,
-
             'total_weight' => $weight,
-
             'total_point' => $point,
-
         ]);
+    }
+
+    /**
+     * Update bottle status
+     */
+    public function setBottleStatus(
+        int $id,
+        string $status
+    ): bool {
+        return $this->machineSessionRepository->updateSession(
+            $id,
+            [
+                'bottle_status' => $status
+            ]
+        );
     }
 
     /**
@@ -123,13 +124,9 @@ class MachineSessionService extends BaseService
     public function finish(int $id, int $transactionId): bool
     {
         return $this->machineSessionRepository->finishSession($id, [
-
             'transaction_id' => $transactionId,
-
             'status' => 'completed',
-
             'completed_at' => date('Y-m-d H:i:s'),
-
         ]);
     }
 
@@ -139,5 +136,30 @@ class MachineSessionService extends BaseService
     public function cancel(int $id): bool
     {
         return $this->machineSessionRepository->cancelSession($id);
+    }
+
+    /**
+     * Batalkan session yang sudah lebih dari timeout
+     */
+    public function expireOldSessions(int $timeout = 10): void
+    {
+        $sessions = $this->machineSessionRepository
+            ->findActiveSessions();
+
+        $now = time();
+
+        foreach ($sessions as $session) {
+            $startedAt = strtotime($session['started_at']);
+
+            if (($now - $startedAt) >= $timeout) {
+                $this->machineSessionRepository->updateSession(
+                    (int) $session['id'],
+                    [
+                        'status' => 'cancelled',
+                        'completed_at' => date('Y-m-d H:i:s'),
+                    ]
+                );
+            }
+        }
     }
 }

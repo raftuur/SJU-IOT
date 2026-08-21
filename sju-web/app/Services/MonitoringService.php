@@ -103,6 +103,7 @@ class MonitoringService
             return null;
         }
 
+        // Status realtime
         if ($machine['status'] === 'maintenance') {
 
             $machine['realtime_status'] = 'maintenance';
@@ -115,6 +116,15 @@ class MonitoringService
                 ? 'online'
                 : 'offline';
         }
+
+        // Data sensor terakhir
+        $machine['sensor'] = [
+            'weight'      => (float) ($machine['last_weight'] ?? 0),
+            'bin_level'   => (int) ($machine['last_bin_level'] ?? 0),
+            'temperature' => (float) ($machine['last_temperature'] ?? 0),
+            'wifi_rssi'   => (int) ($machine['last_wifi_rssi'] ?? 0),
+            'voltage'     => (float) ($machine['last_voltage'] ?? 0),
+        ];
 
         return $machine;
     }
@@ -206,6 +216,17 @@ class MonitoringService
     }
 
     /**
+     * Ambil aktivitas terbaru machine
+     */
+    public function getMachineActivities(int $machineId, int $limit = 10): array
+    {
+        return $this->machineLogModel
+            ->where('machine_id', $machineId)
+            ->orderBy('created_at', 'DESC')
+            ->findAll($limit);
+    }
+
+    /**
      * Cek apakah machine masih online
      */
     public function isMachineOnline(?string $heartbeatAt): bool
@@ -214,7 +235,7 @@ class MonitoringService
             return false;
         }
 
-        return strtotime($heartbeatAt) >= strtotime('-10 seconds');
+        return strtotime($heartbeatAt) >= strtotime('-30 seconds');
     }
 
     /**

@@ -34,6 +34,16 @@ class MachineSessionRepository extends BaseRepository
     }
 
     /**
+     * Semua Session Aktif
+     */
+    public function findActiveSessions(): array
+    {
+        return $this->model
+            ->where('status', 'active')
+            ->findAll();
+    }
+
+    /**
      * Cari Session berdasarkan Token
      */
     public function findByToken(string $token): ?array

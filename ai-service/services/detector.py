@@ -33,12 +33,53 @@ def detect(image_path: str):
 
     detection_id = "AI" + datetime.now().strftime("%Y%m%d%H%M%S")
 
-    # Jalankan YOLO (tidak save otomatis)
+    # Cek file gambar
+    image = cv2.imread(image_path)
+
+    if image is None:
+        print(f"[AI] Gagal membaca gambar: {image_path}")
+
+        return {
+            "detection_id": detection_id,
+            "valid": False,
+            "confidence": 0.0,
+            "summary": {
+                "bottle": False,
+                "cap": False,
+                "label": False
+            },
+            "objects": [],
+            "original_image": f"/uploads/original/{Path(image_path).name}",
+            "detected_image": None,
+            "error": "Gambar tidak dapat dibaca"
+        }
+
+    print(f"[AI] Gambar berhasil dibaca: {image.shape}")
+
+    # Jalankan YOLO
     results = model.predict(
-        source=image_path,
+        source=image,
         conf=0.5,
         verbose=False
     )
+
+    if not results:
+        print("[AI] YOLO tidak menghasilkan result.")
+
+        return {
+            "detection_id": detection_id,
+            "valid": False,
+            "confidence": 0.0,
+            "summary": {
+                "bottle": False,
+                "cap": False,
+                "label": False
+            },
+            "objects": [],
+            "original_image": f"/uploads/original/{Path(image_path).name}",
+            "detected_image": None,
+            "error": "YOLO tidak menghasilkan result"
+        }
 
     result = results[0]
 

@@ -84,7 +84,7 @@
 
                             <td>
 
-                                <?php if ($machine['status'] == 'online'): ?>
+                                <?php if ($machine['realtime_status'] === 'online'): ?>
 
                                     <span class="badge-custom badge-success">
 
@@ -92,7 +92,7 @@
 
                                     </span>
 
-                                <?php elseif ($machine['status'] == 'maintenance'): ?>
+                                <?php elseif ($machine['realtime_status'] === 'maintenance'): ?>
 
                                     <span class="badge-custom badge-warning">
 

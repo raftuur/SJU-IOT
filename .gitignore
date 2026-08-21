@@ -1,10 +1,40 @@
-@"
+# Python
 ai-service/.venv/
-sju-web/node_modules/
-sju-web/writable/
+ai-service/__pycache__/
+ai-service/**/*.pyc
+
+# Python uploads
+ai-service/uploads/
+
+# CodeIgniter
+sju-web/vendor/
+sju-web/writable/cache/*
+sju-web/writable/logs/*
+sju-web/writable/session/*
+sju-web/writable/debugbar/*
+sju-web/.env
+
+# CodeIgniter public generated files
+sju-web/public/WRITEPATH/
+sju-web/public/uploads/
+
+# Environment
 .env
 ai-service/.env
-sju-web/.env
+
+# Node
+sju-web/node_modules/
+sju-web/.next/
+
+# Python cache
 __pycache__/
 *.pyc
-"@ | Set-Content .gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+sju-web/writable/
