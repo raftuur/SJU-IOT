@@ -1,5 +1,7 @@
 # SJU-IOT
 
+[![CI](https://github.com/raftuur/SJU-IOT/actions/workflows/ci.yml/badge.svg)](https://github.com/raftuur/SJU-IOT/actions/workflows/ci.yml)
+
 ![GitHub](https://img.shields.io/badge/GitHub-SJU--IOT-181717?logo=github)
 ![CodeIgniter](https://img.shields.io/badge/CodeIgniter-4-EF4223?logo=codeigniter&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
