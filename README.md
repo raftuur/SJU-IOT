@@ -1,5 +1,13 @@
 # SJU-IOT
 
+![GitHub](https://img.shields.io/badge/GitHub-SJU--IOT-181717?logo=github)
+![CodeIgniter](https://img.shields.io/badge/CodeIgniter-4-EF4223?logo=codeigniter&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
+![YOLO](https://img.shields.io/badge/YOLOv8-Ultralytics-111111)
+![ESP32](https://img.shields.io/badge/ESP32-IoT-E7352C?logo=espressif&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-4479A1?logo=mysql&logoColor=white)
+![License](https://img.shields.io/badge/License-Restricted-lightgrey)
+
 ### Sampah Jadi Uang
 
 Sistem **Reverse Vending Machine (RVM) berbasis Internet of Things (IoT)** yang dirancang untuk mendeteksi, memvalidasi, dan mencatat penukaran botol plastik menjadi **point digital**.
