@@ -1,0 +1,15 @@
+SJU-IOT - Sampah Jadi Uang
+Copyright (c) 2026 Raftur
+
+All rights reserved.
+
+This software and its source code are the property of the copyright holder.
+
+Permission is granted to view the source code for educational and
+research purposes only.
+
+Without prior written permission from the copyright holder, no person
+may copy, modify, distribute, sublicense, publish, sell, or use this
+software or substantial portions of it for commercial purposes.
+
+The software is provided "as is", without warranty of any kind.
