@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check project structure
+        run: |
+          echo "Checking SJU-IOT project..."
+          test -d ai-service
+          test -d sju-web
+          test -f README.md
+          test -f LICENSE.txt
+          test -f CONTRIBUTING.md
+          echo "Project structure OK"
+
+      - name: Check CodeIgniter project
+        run: |
+          test -f sju-web/composer.json
+          test -d sju-web/app
+          test -d sju-web/public
+          echo "CodeIgniter project OK"
+
+      - name: Check AI Service
+        run: |
+          test -d ai-service
+          echo "AI Service OK"
