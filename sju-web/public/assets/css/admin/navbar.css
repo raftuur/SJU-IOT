@@ -2,111 +2,202 @@
    NAVBAR
 =========================================================== */
 
-.navbar-custom{
-    position:sticky;
-    top:0;
-    z-index:900;
-    height:72px;
-    background:#FFFFFF;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 30px;
-    border-bottom:1px solid #E2E8F0;
+.navbar-custom {
+    position: sticky;
+    top: 0;
+    z-index: 900;
+
+    width: 100%;
+    height: 72px;
+
+    background: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
 }
 
-.navbar-left{
-    display:flex;
-    align-items:center;
-}
-
-.menu-toggle{
-    width:44px;
-    height:44px;
-    border:none;
-    border-radius:12px;
-    background:#F8FAFC;
-    color:#0F172A;
-    font-size:22px;
-    transition:.25s;
-    cursor:pointer;
-}
-
-.menu-toggle:hover{
-    background:#F1F5F9;
-}
-
-.navbar-right{
-    display:flex;
-    align-items:center;
-    gap:18px;
-}
-
-.navbar-icon{
-    width:44px;
-    height:44px;
-    border:none;
-    border-radius:12px;
-    background:#F8FAFC;
-    font-size:18px;
-    color:#475569;
-    transition:.25s;
-    cursor:pointer;
-}
-
-.navbar-icon:hover{
-    background:#F1F5F9;
-    transform:translateY(-2px);
-}
-
-.navbar-user{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.navbar-avatar{
-    width:42px;
-    height:42px;
-    border-radius:50%;
-    background:#16A34A;
-    color:#FFFFFF;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-weight:700;
-    box-shadow:0 6px 16px rgba(22,163,74,.20);
-}
-
-.navbar-user-info{
-    display:flex;
-    flex-direction:column;
-}
-
-.navbar-user-name{
-    font-size:15px;
-    font-weight:600;
-    color:#0F172A;
-}
-
-.navbar-user-role{
-    font-size:13px;
-    color:#64748B;
-}
 
 /* ===========================================================
-   RESPONSIVE
+   LEFT
+=========================================================== */
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+}
+
+
+/* ===========================================================
+   MENU TOGGLE
+=========================================================== */
+
+.menu-toggle {
+    width: 44px;
+    height: 44px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #F8FAFC;
+    color: #0F172A;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+
+    transition: 0.25s;
+
+    cursor: pointer;
+}
+
+.menu-toggle:hover {
+    background: #F1F5F9;
+    color: #16A34A;
+}
+
+
+/* ===========================================================
+   RIGHT
+=========================================================== */
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+
+    gap: 18px;
+
+    min-width: 0;
+}
+
+
+/* ===========================================================
+   NOTIFICATION
+=========================================================== */
+
+.navbar-icon {
+    width: 44px;
+    height: 44px;
+
+    flex-shrink: 0;
+
+    border: none;
+    border-radius: 12px;
+
+    background: #F8FAFC;
+    color: #475569;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+
+    transition: 0.25s;
+
+    cursor: pointer;
+}
+
+.navbar-icon:hover {
+    background: #F1F5F9;
+    color: #16A34A;
+}
+
+
+/* ===========================================================
+   USER
+=========================================================== */
+
+.navbar-user {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 0;
+}
+
+.navbar-avatar {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #16A34A;
+    color: #FFFFFF;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 700;
+
+    box-shadow: 0 6px 16px rgba(22, 163, 74, 0.20);
+}
+
+.navbar-user-info {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+}
+
+.navbar-user-name {
+    font-size: 15px;
+    font-weight: 600;
+
+    color: #0F172A;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 180px;
+}
+
+.navbar-user-role {
+    font-size: 13px;
+
+    color: #64748B;
+}
+
+
+/* ===========================================================
+   TABLET
+=========================================================== */
+
+@media (max-width: 992px) {
+
+    .navbar-custom {
+        padding: 0 20px;
+    }
+
+    .navbar-right {
+        gap: 10px;
+    }
+
+}
+
+
+/* ===========================================================
+   MOBILE
 =========================================================== */
 
 @media (max-width: 768px) {
 
     .navbar-custom {
         height: 64px;
-        padding: 0 15px;
-    }
 
-    .navbar-right {
-        gap: 8px;
+        padding: 0 15px;
     }
 
     .navbar-user-info {
@@ -117,6 +208,7 @@
     .navbar-icon {
         width: 40px;
         height: 40px;
+
         border-radius: 10px;
     }
 
@@ -127,14 +219,33 @@
 
 }
 
+
+/* ===========================================================
+   SMALL MOBILE
+=========================================================== */
+
 @media (max-width: 400px) {
 
     .navbar-custom {
         padding: 0 10px;
     }
 
+    .navbar-right {
+        gap: 6px;
+    }
+
     .navbar-icon {
         display: none;
+    }
+
+    .menu-toggle {
+        width: 38px;
+        height: 38px;
+    }
+
+    .navbar-avatar {
+        width: 36px;
+        height: 36px;
     }
 
 }
