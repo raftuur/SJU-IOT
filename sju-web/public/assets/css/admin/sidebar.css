@@ -132,8 +132,36 @@
    RESPONSIVE
 =========================================================== */
 
-@media (max-width:992px){
-    .sidebar{
-        transform:translateX(-100%);
+@media (max-width: 992px) {
+
+    .sidebar {
+        position: fixed;
+        width: 240px;
+        max-width: 80%;
+        height: 100vh;
+        padding: 20px;
+
+        transform: translateX(-100%);
+
+        transition: transform 0.3s ease;
     }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .sidebar-title {
+        font-size: 16px;
+    }
+
+    .sidebar-logo {
+        width: 60px;
+        height: 60px;
+        font-size: 24px;
+    }
+
+    .sidebar-link {
+        padding: 12px 14px;
+    }
+
 }
