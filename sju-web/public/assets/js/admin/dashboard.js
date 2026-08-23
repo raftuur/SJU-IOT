@@ -125,3 +125,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
+
+
+// =====================================================
+// CLOSE SIDEBAR AFTER CLICK MENU
+// =====================================================
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const sidebar = document.querySelector('.sidebar');
+    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+
+    if (sidebar && sidebarLinks.length > 0) {
+
+        sidebarLinks.forEach(function (link) {
+
+            link.addEventListener('click', function () {
+
+                if (window.innerWidth <= 992) {
+                    sidebar.classList.remove('active');
+                }
+
+            });
+
+        });
+
+    }
+
+});
