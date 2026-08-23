@@ -1,3 +1,7 @@
+// =====================================================
+// TRANSACTION CHART
+// =====================================================
+
 const canvas = document.getElementById('transactionChart');
 
 if (canvas) {
@@ -50,24 +54,19 @@ if (canvas) {
 
         },
 
-
         options: {
 
             responsive: true,
 
             maintainAspectRatio: false,
 
-
             plugins: {
 
                 legend: {
-
                     display: true
-
                 }
 
             },
-
 
             scales: {
 
@@ -84,7 +83,6 @@ if (canvas) {
                     }
 
                 },
-
 
                 x: {
 
@@ -105,3 +103,25 @@ if (canvas) {
     });
 
 }
+
+
+// =====================================================
+// MOBILE SIDEBAR
+// =====================================================
+
+document.addEventListener('DOMContentLoaded', function () {
+
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+
+    if (menuToggle && sidebar) {
+
+        menuToggle.addEventListener('click', function () {
+
+            sidebar.classList.toggle('active');
+
+        });
+
+    }
+
+});
