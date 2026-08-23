@@ -98,12 +98,43 @@
    RESPONSIVE
 =========================================================== */
 
-@media (max-width:768px){
-    .navbar-custom{
-        padding:0 20px;
+@media (max-width: 768px) {
+
+    .navbar-custom {
+        height: 64px;
+        padding: 0 15px;
     }
 
-    .navbar-user-info{
-        display:none;
+    .navbar-right {
+        gap: 8px;
     }
+
+    .navbar-user-info {
+        display: none;
+    }
+
+    .menu-toggle,
+    .navbar-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+
+    .navbar-avatar {
+        width: 38px;
+        height: 38px;
+    }
+
+}
+
+@media (max-width: 400px) {
+
+    .navbar-custom {
+        padding: 0 10px;
+    }
+
+    .navbar-icon {
+        display: none;
+    }
+
 }
