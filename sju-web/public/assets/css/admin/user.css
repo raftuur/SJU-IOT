@@ -2,81 +2,360 @@
    FILTER CARD
 =========================================================== */
 
-.filter-card{
-    background:#FFFFFF;
-    border:1px solid var(--border);
-    border-radius:18px;
-    overflow:hidden;
-    margin-bottom:24px;
+.filter-card {
+    width: 100%;
+
+    background: #FFFFFF;
+
+    border: 1px solid var(--border);
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    margin-bottom: 24px;
 }
 
-.filter-header{
-    padding:18px 24px;
-    border-bottom:1px solid #EEF2F7;
+.filter-header {
+    padding: 18px 24px;
+
+    border-bottom: 1px solid #EEF2F7;
 }
 
-.filter-header h5{
-    margin:0;
-    font-size:18px;
-    font-weight:700;
-    color:var(--dark);
+.filter-header h5 {
+    margin: 0;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: var(--dark);
 }
 
-.filter-body{
-    padding:24px;
+.filter-body {
+    padding: 24px;
 }
+
 
 /* ===========================================================
    FILTER GRID
 =========================================================== */
 
-.filter-grid{
-    display:grid;
-    grid-template-columns:2.2fr 1fr 1fr auto;
-    gap:20px;
-    align-items:end;
+.filter-grid {
+    display: grid;
+
+    grid-template-columns: 2.2fr 1fr 1fr auto;
+
+    gap: 20px;
+
+    align-items: end;
 }
 
-.filter-item{
-    display:flex;
-    flex-direction:column;
+.filter-item {
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
 }
+
 
 /* ===========================================================
    FILTER ACTION
 =========================================================== */
 
-.filter-action{
-    display:flex;
-    align-items:center;
-    gap:10px;
+.filter-action {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
 }
 
-.filter-action .btn-custom{
-    height:48px;
+.filter-action .btn-custom {
+    height: 48px;
 }
 
-.filter-action .btn-primary-custom{
-    min-width:120px;
+.filter-action .btn-primary-custom {
+    min-width: 120px;
 }
 
-.filter-action .btn-icon{
-    width:48px;
-    height:48px;
+.filter-action .btn-icon {
+    width: 48px;
+    height: 48px;
 }
+
 
 /* ===========================================================
-   RESPONSIVE
+   USER TABLE
 =========================================================== */
 
-@media (max-width:992px){
+.table-responsive {
+    width: 100%;
 
-    .filter-grid{
-        grid-template-columns:1fr;
+    overflow-x: auto;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.custom-table {
+    width: 100%;
+
+    min-width: 850px;
+
+    border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+    white-space: nowrap;
+}
+
+.custom-table th:first-child,
+.custom-table td:first-child {
+    min-width: 280px;
+
+    white-space: normal;
+}
+
+
+/* ===========================================================
+   USER INFO
+=========================================================== */
+
+.user-info {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    min-width: 240px;
+}
+
+.user-avatar {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #DCFCE7;
+
+    color: #16A34A;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+.user-name {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #0F172A;
+}
+
+.user-email {
+    margin-top: 3px;
+
+    font-size: 13px;
+
+    color: #64748B;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    max-width: 260px;
+}
+
+
+/* ===========================================================
+   TABLE ACTION
+=========================================================== */
+
+.table-action {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 6px;
+
+    white-space: nowrap;
+}
+
+.table-action .btn-icon {
+    flex-shrink: 0;
+}
+
+
+/* ===========================================================
+   TABLE FOOTER
+=========================================================== */
+
+.table-footer {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 15px;
+
+    padding: 18px 24px;
+
+    border-top: 1px solid #EEF2F7;
+
+    overflow-x: auto;
+}
+
+
+/* ===========================================================
+   TABLET
+=========================================================== */
+
+@media (max-width: 1200px) {
+
+    .filter-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .filter-action{
-        justify-content:flex-start;
+    .filter-action {
+        grid-column: 1 / -1;
+
+        justify-content: flex-start;
+    }
+
+}
+
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width: 576px) {
+
+    .filter-card {
+        border-radius: 14px;
+
+        margin-bottom: 16px;
+    }
+
+    .filter-header {
+        padding: 15px 16px;
+    }
+
+    .filter-header h5 {
+        font-size: 16px;
+    }
+
+    .filter-body {
+        padding: 16px;
+    }
+
+    .filter-grid {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+    }
+
+    .filter-action {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 1fr auto;
+
+        gap: 8px;
+    }
+
+    .filter-action .btn-primary-custom {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .filter-action .btn-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+
+    /* TABLE CARD */
+
+    .card {
+        width: 100%;
+
+        overflow: hidden;
+
+        border-radius: 14px;
+    }
+
+    .card-header {
+        padding: 15px 16px;
+
+        gap: 10px;
+
+        flex-wrap: wrap;
+    }
+
+    .card-header .card-title {
+        font-size: 16px;
+    }
+
+
+    /* TABLE */
+
+    .table-responsive {
+        width: 100%;
+
+        overflow-x: auto;
+    }
+
+    .custom-table {
+        min-width: 850px;
+    }
+
+
+    /* FOOTER */
+
+    .table-footer {
+        padding: 15px 16px;
+
+        justify-content: flex-start;
+    }
+
+}
+
+
+/* ===========================================================
+   VERY SMALL MOBILE
+=========================================================== */
+
+@media (max-width: 400px) {
+
+    .filter-body {
+        padding: 14px;
+    }
+
+    .filter-action {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-action .btn-icon {
+        width: 100%;
     }
 
 }
