@@ -2,22 +2,31 @@
    DASHBOARD LAYOUT
 =========================================================== */
 
-.dashboard-wrapper{
-    display:flex;
-    min-height:100vh;
-    background:#F8FAFC;
+.dashboard-wrapper {
+    display: flex;
+
+    min-height: 100vh;
+
+    background: #F8FAFC;
 }
 
-.dashboard-content{
-    flex:1;
-    margin-left:280px;
-    display:flex;
-    flex-direction:column;
+.dashboard-content {
+    flex: 1;
+
+    min-width: 0;
+
+    margin-left: 280px;
+
+    display: flex;
+    flex-direction: column;
 }
 
-.dashboard-main{
-    flex:1;
-    padding:32px;
+.dashboard-main {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 32px;
 }
 
 
@@ -25,8 +34,8 @@
    PAGE HEADER
 =========================================================== */
 
-.page-header{
-    margin-bottom:32px;
+.page-header {
+    margin-bottom: 32px;
 }
 
 
@@ -34,11 +43,14 @@
    DASHBOARD GRID
 =========================================================== */
 
-.dashboard-grid{
-    display:grid;
-    grid-template-columns:2fr 1fr;
-    gap:24px;
-    margin-top:24px;
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 24px;
+
+    margin-top: 24px;
 }
 
 
@@ -46,11 +58,14 @@
    DASHBOARD SECTION
 =========================================================== */
 
-.dashboard-section{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:24px;
-    margin-bottom:24px;
+.dashboard-section {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 24px;
+
+    margin-bottom: 24px;
 }
 
 
@@ -58,22 +73,32 @@
    PANEL GENERAL
 =========================================================== */
 
-.dashboard-panel{
-    background:#FFFFFF;
-    border:1px solid #E2E8F0;
-    border-radius:20px;
-    padding:20px;
+.dashboard-panel {
+    min-width: 0;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    overflow: hidden;
 }
 
-.panel-header{
-    margin-bottom:20px;
+.panel-header {
+    margin-bottom: 20px;
 }
 
-.panel-header h5{
-    margin:0;
-    font-size:18px;
-    font-weight:700;
-    color:#0F172A;
+.panel-header h5 {
+    margin: 0;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    color: #0F172A;
 }
 
 
@@ -81,57 +106,85 @@
    STATS CARD
 =========================================================== */
 
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:24px;
-    margin-bottom:24px;
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 24px;
+
+    margin-bottom: 24px;
 }
 
-.stats-card{
-    background:#FFFFFF;
-    border:1px solid #E2E8F0;
-    border-radius:20px;
-    padding:20px;
-    transition:.25s;
+.stats-card {
+    min-width: 0;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 20px;
+
+    padding: 20px;
+
+    transition: 0.25s;
 }
 
-.stats-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 12px 30px rgba(15,23,42,.08);
+.stats-card:hover {
+    transform: translateY(-4px);
+
+    box-shadow: 0 12px 30px rgba(15, 23, 42, .08);
 }
 
-.stats-icon{
-    width:56px;
-    height:56px;
-    border-radius:16px;
-    background:#DCFCE7;
-    color:#16A34A;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:24px;
-    margin-bottom:18px;
+.stats-icon {
+    width: 56px;
+    height: 56px;
+
+    border-radius: 16px;
+
+    background: #DCFCE7;
+
+    color: #16A34A;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+
+    margin-bottom: 18px;
 }
 
-.stats-title{
-    color:#64748B;
-    font-size:14px;
+.stats-title {
+    color: #64748B;
+
+    font-size: 14px;
 }
 
-.stats-value{
-    margin-top:10px;
-    font-size:36px;
-    font-weight:700;
-    color:#0F172A;
+.stats-value {
+    margin-top: 10px;
+
+    font-size: 36px;
+
+    font-weight: 700;
+
+    color: #0F172A;
+
+    line-height: 1.2;
+
+    word-break: break-word;
 }
 
-.stats-footer{
-    margin-top:14px;
-    padding-top:14px;
-    border-top:1px solid #F1F5F9;
-    font-size:13px;
-    color:#94A3B8;
+.stats-footer {
+    margin-top: 14px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid #F1F5F9;
+
+    font-size: 13px;
+
+    color: #94A3B8;
 }
 
 
@@ -139,54 +192,79 @@
    MACHINE STATUS
 =========================================================== */
 
-.machine-status{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
+.machine-status {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
 }
 
-.machine-item{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px;
-    background:#F8FAFC;
-    border-radius:16px;
+.machine-item {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 18px;
+
+    background: #F8FAFC;
+
+    border-radius: 16px;
+
+    min-width: 0;
 }
 
-.machine-name{
-    font-size:16px;
-    font-weight:700;
-    color:#1E293B;
+.machine-name {
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #1E293B;
 }
 
-.machine-info{
-    font-size:13px;
-    color:#64748B;
-    margin-top:4px;
+.machine-info {
+    font-size: 13px;
+
+    color: #64748B;
+
+    margin-top: 4px;
 }
 
-.machine-detail{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
+.machine-detail {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
 }
 
-.machine-detail div{
-    background:#FFFFFF;
-    border:1px solid #E2E8F0;
-    padding:15px;
-    border-radius:12px;
+.machine-detail div {
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    padding: 15px;
+
+    border-radius: 12px;
+
+    min-width: 0;
 }
 
-.machine-detail small{
-    display:block;
-    color:#64748B;
+.machine-detail small {
+    display: block;
+
+    color: #64748B;
 }
 
-.machine-detail strong{
-    color:#1E293B;
-    font-size:14px;
+.machine-detail strong {
+    color: #1E293B;
+
+    font-size: 14px;
+
+    word-break: break-word;
 }
 
 
@@ -194,39 +272,57 @@
    SENSOR MONITORING
 =========================================================== */
 
-.sensor-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:16px;
+.sensor-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 16px;
 }
 
-.sensor-card{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;
-    padding:18px;
-    background:#F8FAFC;
-    border:1px solid #E2E8F0;
-    border-radius:16px;
+.sensor-card {
+    display: flex;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+
+    padding: 18px;
+
+    background: #F8FAFC;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 16px;
+
+    min-width: 0;
 }
 
-.sensor-card i{
-    font-size:28px;
-    color:#16A34A;
+.sensor-card i {
+    font-size: 28px;
+
+    color: #16A34A;
 }
 
-.sensor-card small{
-    display:block;
-    color:#64748B;
-    font-size:13px;
+.sensor-card small {
+    display: block;
+
+    color: #64748B;
+
+    font-size: 13px;
 }
 
-.sensor-card h4{
-    margin:5px 0 0;
-    font-size:20px;
-    font-weight:700;
-    color:#1E293B;
+.sensor-card h4 {
+    margin: 5px 0 0;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #1E293B;
+
+    word-break: break-word;
 }
 
 
@@ -234,94 +330,229 @@
    ACTIVE SESSION
 =========================================================== */
 
-.session-box{
-    background:#F8FAFC;
-    border:1px solid #E2E8F0;
-    border-radius:16px;
-    padding:20px;
+.session-box {
+    background: #F8FAFC;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 16px;
+
+    padding: 20px;
+
+    min-width: 0;
 }
 
-.session-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
+.session-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
 }
 
-.session-header h6{
-    margin:0;
-    font-size:16px;
-    font-weight:700;
+.session-header h6 {
+    margin: 0;
+
+    font-size: 16px;
+
+    font-weight: 700;
 }
 
-.session-header span:not(.badge){
-    display:block;
-    color:#64748B;
-    font-size:13px;
-    margin-top:4px;
+.session-header span:not(.badge) {
+    display: block;
+
+    color: #64748B;
+
+    font-size: 13px;
+
+    margin-top: 4px;
 }
 
-.session-detail{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
+.session-detail {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
 }
 
-.session-detail div{
-    background:#FFFFFF;
-    border:1px solid #E2E8F0;
-    border-radius:12px;
-    padding:15px;
+.session-detail div {
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 12px;
+
+    padding: 15px;
+
+    min-width: 0;
 }
 
-.session-detail small{
-    display:block;
-    color:#64748B;
+.session-detail small {
+    display: block;
+
+    color: #64748B;
 }
 
-.session-detail strong{
-    color:#1E293B;
-    font-size:14px;
+.session-detail strong {
+    color: #1E293B;
+
+    font-size: 14px;
+
+    word-break: break-word;
 }
 
 
 /* ===========================================================
-   RESPONSIVE
+   LARGE TABLET
 =========================================================== */
 
-@media(max-width:1200px){
-    .sensor-grid{
-        grid-template-columns:repeat(2,1fr);
+@media (max-width: 1200px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
+
+    .sensor-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
 }
 
-@media(max-width:992px){
-    .dashboard-content{
-        margin-left:0;
+
+/* ===========================================================
+   TABLET
+=========================================================== */
+
+@media (max-width: 992px) {
+
+    .dashboard-content {
+        margin-left: 0;
+
+        width: 100%;
     }
 
-    .dashboard-grid{
-        grid-template-columns:1fr;
+    .dashboard-main {
+        padding: 28px 24px;
     }
 
-    .dashboard-section{
-        grid-template-columns:1fr;
+    .dashboard-grid {
+        grid-template-columns: 1fr;
     }
 
-    .stats-grid{
-        grid-template-columns:repeat(2,1fr);
+    .dashboard-section {
+        grid-template-columns: 1fr;
     }
+
 }
 
-@media(max-width:576px){
-    .dashboard-main{
-        padding:20px;
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width: 576px) {
+
+    .dashboard-main {
+        padding: 20px 15px;
+    }
+
+    .page-header {
+        margin-bottom: 20px;
     }
 
     .stats-grid,
     .sensor-grid,
     .machine-detail,
-    .session-detail{
-        grid-template-columns:1fr;
+    .session-detail {
+        grid-template-columns: 1fr;
     }
+
+    .stats-grid,
+    .dashboard-grid,
+    .dashboard-section {
+        gap: 15px;
+    }
+
+    .stats-card {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .stats-icon {
+        width: 48px;
+        height: 48px;
+
+        font-size: 21px;
+
+        border-radius: 14px;
+
+        margin-bottom: 14px;
+    }
+
+    .stats-value {
+        font-size: 30px;
+    }
+
+    .dashboard-panel {
+        padding: 16px;
+
+        border-radius: 16px;
+    }
+
+    .panel-header {
+        margin-bottom: 15px;
+    }
+
+    .panel-header h5 {
+        font-size: 16px;
+    }
+
+    .machine-item {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .machine-detail div,
+    .session-detail div {
+        padding: 13px;
+    }
+
+    .sensor-card {
+        padding: 16px;
+    }
+
+    .session-box {
+        padding: 16px;
+    }
+
+}
+
+
+/* ===========================================================
+   VERY SMALL MOBILE
+=========================================================== */
+
+@media (max-width: 400px) {
+
+    .dashboard-main {
+        padding: 16px 12px;
+    }
+
+    .stats-card {
+        padding: 16px;
+    }
+
+    .stats-value {
+        font-size: 27px;
+    }
+
+    .sensor-card h4 {
+        font-size: 18px;
+    }
+
 }

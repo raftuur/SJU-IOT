@@ -106,50 +106,82 @@ if (canvas) {
 
 
 // =====================================================
-// MOBILE SIDEBAR
+// ADMIN SIDEBAR
 // =====================================================
 
 document.addEventListener('DOMContentLoaded', function () {
 
     const menuToggle = document.querySelector('.menu-toggle');
     const sidebar = document.querySelector('.sidebar');
-
-    if (menuToggle && sidebar) {
-
-        menuToggle.addEventListener('click', function () {
-
-            sidebar.classList.toggle('active');
-
-        });
-
-    }
-
-});
-
-
-// =====================================================
-// CLOSE SIDEBAR AFTER CLICK MENU
-// =====================================================
-
-document.addEventListener('DOMContentLoaded', function () {
-
-    const sidebar = document.querySelector('.sidebar');
     const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
-    if (sidebar && sidebarLinks.length > 0) {
+    if (!menuToggle || !sidebar) {
+        return;
+    }
 
-        sidebarLinks.forEach(function (link) {
 
-            link.addEventListener('click', function () {
+    // =================================================
+    // BUKA / TUTUP SIDEBAR
+    // =================================================
 
-                if (window.innerWidth <= 992) {
-                    sidebar.classList.remove('active');
-                }
+    menuToggle.addEventListener('click', function (event) {
 
-            });
+        event.stopPropagation();
+
+        sidebar.classList.toggle('active');
+
+    });
+
+
+    // =================================================
+    // KLIK MENU
+    // =================================================
+
+    sidebarLinks.forEach(function (link) {
+
+        link.addEventListener('click', function () {
+
+            if (window.innerWidth <= 992) {
+
+                sidebar.classList.remove('active');
+
+            }
 
         });
 
-    }
+    });
+
+
+    // =================================================
+    // KLIK DI LUAR SIDEBAR
+    // =================================================
+
+    document.addEventListener('click', function (event) {
+
+        if (window.innerWidth > 992) {
+            return;
+        }
+
+        if (!sidebar.classList.contains('active')) {
+            return;
+        }
+
+        const clickedInsideSidebar =
+            sidebar.contains(event.target);
+
+        const clickedMenuToggle =
+            menuToggle.contains(event.target);
+
+
+        if (
+            !clickedInsideSidebar &&
+            !clickedMenuToggle
+        ) {
+
+            sidebar.classList.remove('active');
+
+        }
+
+    });
 
 });
