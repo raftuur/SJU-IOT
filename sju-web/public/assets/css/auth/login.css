@@ -1,36 +1,121 @@
+/* =========================================
+   LOGIN PAGE
+========================================= */
+
 body {
-    background: #F8FAFC;
+    background: #f8fafc;
 }
 
+
 /* =========================================
-   LOGIN LEFT
+   BRANDING
 ========================================= */
 
 .login-left {
-    background: #16A34A;
-    color: #fff;
+    background: linear-gradient(
+        145deg,
+        #16a34a 0%,
+        #15803d 100%
+    );
+
+    color: #ffffff;
+    position: relative;
+    overflow: hidden;
 }
+
+/* Dekorasi background */
+
+.login-left::before {
+    content: "";
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.08);
+
+    top: -120px;
+    left: -120px;
+}
+
+.login-left::after {
+    content: "";
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    right: -100px;
+    bottom: -100px;
+}
+
 
 .login-brand {
     max-width: 450px;
+    position: relative;
+    z-index: 2;
 }
+
+
+/* Logo */
+
+.brand-logo {
+    width: 82px;
+    height: 82px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+    font-weight: 700;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    backdrop-filter: blur(10px);
+}
+
 
 .brand-title {
-    font-size: 72px;
+    font-size: 64px;
     font-weight: 700;
-    margin-bottom: 10px;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 5px;
 }
+
 
 .brand-subtitle {
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 600;
-    margin-bottom: 20px;
+
+    margin-bottom: 18px;
 }
 
+
 .brand-description {
-    font-size: 18px;
+    font-size: 16px;
+
     opacity: .9;
-    line-height: 1.8;
+
+    line-height: 1.7;
+
+    max-width: 400px;
+
+    margin: 0 auto;
 }
 
 
@@ -39,12 +124,90 @@ body {
 ========================================= */
 
 .login-box {
+
     width: 100%;
-    max-width: 420px;
-    padding: 40px;
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    max-width: 430px;
+
+    padding: 38px;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 50px rgba(15, 23, 42, 0.08);
+
+    border: 1px solid #eef2f7;
+}
+
+
+/* Input */
+
+.login-box .form-control {
+
+    min-height: 48px;
+
+    border-radius: 10px;
+
+    border: 1px solid #dbe3ec;
+
+    padding: 10px 14px;
+
+    font-size: 15px;
+}
+
+
+.login-box .form-control:focus {
+
+    border-color: #16a34a;
+
+    box-shadow:
+        0 0 0 3px rgba(22, 163, 74, .12);
+}
+
+
+/* Label */
+
+.login-box .form-label {
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #334155;
+
+    margin-bottom: 7px;
+}
+
+
+/* Login Button */
+
+.login-box .btn-success {
+
+    min-height: 48px;
+
+    border-radius: 10px;
+
+    background: #16a34a;
+
+    border-color: #16a34a;
+
+    font-weight: 600;
+
+    transition: .2s ease;
+}
+
+
+.login-box .btn-success:hover {
+
+    background: #15803d;
+
+    border-color: #15803d;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 8px 18px rgba(22, 163, 74, .20);
 }
 
 
@@ -55,16 +218,20 @@ body {
 @media (max-width: 991px) {
 
     .login-box {
-        margin: 20px;
-        padding: 30px;
+
+        max-width: 430px;
+
+        margin: 25px;
+
+        padding: 32px;
     }
 
     .brand-title {
-        font-size: 56px;
+        font-size: 54px;
     }
 
     .brand-subtitle {
-        font-size: 26px;
+        font-size: 25px;
     }
 
 }
@@ -77,34 +244,154 @@ body {
 @media (max-width: 576px) {
 
     .login-left {
+
         min-height: auto;
-        padding: 40px 20px;
+
+        padding: 42px 20px 32px;
+
         text-align: center;
     }
 
+
     .login-brand {
-        max-width: 100%;
+
+        max-width: 330px;
+
+        margin: 0 auto;
     }
+
+
+    .brand-logo {
+
+        width: 64px;
+        height: 64px;
+
+        border-radius: 18px;
+
+        margin-bottom: 18px;
+
+        font-size: 25px;
+    }
+
 
     .brand-title {
+
         font-size: 42px;
+
+        letter-spacing: -1px;
     }
+
 
     .brand-subtitle {
-        font-size: 22px;
+
+        font-size: 21px;
+
+        margin-bottom: 10px;
     }
 
+
     .brand-description {
-        font-size: 15px;
+
+        font-size: 13px;
+
         line-height: 1.6;
     }
 
+
     .login-box {
+
         width: calc(100% - 30px);
-        max-width: none;
-        margin: 15px;
+
+        max-width: 390px;
+
+        margin: 15px auto 25px;
+
         padding: 25px 20px;
-        border-radius: 12px;
+
+        border-radius: 16px;
     }
 
+
+    .login-box .form-control {
+
+        min-height: 46px;
+    }
+
+
+    .login-box .btn-success {
+
+        min-height: 46px;
+    }
+
+}
+
+
+/* =========================================
+   BRAND BADGE
+========================================= */
+
+.brand-badge {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 7px 14px;
+
+    margin-bottom: 18px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, .12);
+
+    border: 1px solid rgba(255, 255, 255, .18);
+
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   BRAND FEATURES
+========================================= */
+
+.brand-features {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    margin-top: 28px;
+
+    flex-wrap: wrap;
+}
+
+
+.brand-feature {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 9px 13px;
+
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, .10);
+
+    border: 1px solid rgba(255, 255, 255, .12);
+
+    font-size: 12px;
+
+    font-weight: 500;
+}
+
+
+.brand-feature i {
+
+    font-size: 15px;
 }
