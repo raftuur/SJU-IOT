@@ -1,4 +1,4 @@
-<div class="col-lg-6 d-none d-lg-flex align-items-center justify-content-center login-left">
+<div class="col-lg-6 col-12 d-flex align-items-center justify-content-center login-left">
 
     <div class="login-brand text-center">
 
