@@ -101,9 +101,9 @@
 
                         <td>
 
-                            <img
-                                src="<?= base_url($row['detected_image']); ?>"
-                                alt="Detection"
+                            <img 
+                                src="<?= base_url('ai-uploads' . str_replace('/uploads', '', $row['detected_image'])); ?>" 
+                                alt="Detection" 
                                 class="img-thumbnail detection-thumb">
 
                         </td>
