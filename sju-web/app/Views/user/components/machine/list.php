@@ -6,36 +6,57 @@
 
             <?php
 
-                $badgeClass = 'secondary';
-                $statusText = '';
+            // Gunakan status realtime dari MonitoringService
+            $realtimeStatus = strtolower(
+                $machine['realtime_status']
+                ?? $machine['status']
+                ?? 'offline'
+            );
 
-                if (!empty($machine['is_in_use'])) {
-                    $badgeClass = 'info';
-                    $statusText = 'Mesin sedang digunakan.';
-                } else {
-                    switch ($machine['status']) {
-                        case 'online':
-                            $badgeClass = 'success';
-                            $statusText = 'Mesin siap digunakan.';
-                            break;
+            $badgeClass = 'danger';
+            $statusText = 'Mesin sedang tidak tersedia.';
 
-                        case 'maintenance':
-                            $badgeClass = 'warning';
-                            $statusText = 'Mesin sedang dalam perbaikan.';
-                            break;
+            if (!empty($machine['is_in_use'])) {
 
-                        default:
-                            $badgeClass = 'danger';
-                            $statusText = 'Mesin sedang tidak tersedia.';
-                            break;
-                    }
+                $badgeClass = 'info';
+                $statusText = 'Mesin sedang digunakan.';
+
+            } else {
+
+                switch ($realtimeStatus) {
+
+                    case 'online':
+
+                        $badgeClass = 'success';
+                        $statusText = 'Mesin siap digunakan.';
+
+                        break;
+
+                    case 'maintenance':
+
+                        $badgeClass = 'warning';
+                        $statusText = 'Mesin sedang dalam perbaikan.';
+
+                        break;
+
+                    default:
+
+                        $badgeClass = 'danger';
+                        $statusText = 'Mesin sedang tidak tersedia.';
+
+                        break;
                 }
+            }
 
             ?>
+
 
             <div class="col-lg-6">
 
                 <div class="dashboard-panel h-100">
+
+
+                    <!-- HEADER -->
 
                     <div class="panel-header d-flex justify-content-between align-items-center">
 
@@ -43,23 +64,38 @@
 
                             <i class="bi bi-cpu me-2"></i>
 
-                            <?= esc($machine['machine_name']); ?>
+                            <?= esc(
+                                $machine['machine_name'] ?? '-'
+                            ); ?>
 
                         </h5>
+
 
                         <span class="badge bg-<?= $badgeClass; ?>">
 
                             <?php if (!empty($machine['is_in_use'])): ?>
+
                                 Digunakan
+
                             <?php else: ?>
-                                <?= ucfirst($machine['status']); ?>
+
+                                <?= ucfirst(
+                                    $realtimeStatus
+                                ); ?>
+
                             <?php endif; ?>
 
                         </span>
 
                     </div>
 
+
+                    <!-- BODY -->
+
                     <div class="panel-body">
+
+
+                        <!-- MACHINE CODE -->
 
                         <div class="mb-3">
 
@@ -71,11 +107,16 @@
 
                             <strong>
 
-                                <?= esc($machine['machine_code']); ?>
+                                <?= esc(
+                                    $machine['machine_code'] ?? '-'
+                                ); ?>
 
                             </strong>
 
                         </div>
+
+
+                        <!-- LOKASI -->
 
                         <div class="mb-3">
 
@@ -85,9 +126,14 @@
 
                             </small>
 
-                            <?= esc($machine['location']); ?>
+                            <?= esc(
+                                $machine['location'] ?? '-'
+                            ); ?>
 
                         </div>
+
+
+                        <!-- STATUS -->
 
                         <div class="mb-4">
 
@@ -97,19 +143,32 @@
 
                             </small>
 
-                            <?= $statusText; ?>
+                            <?= esc($statusText); ?>
 
                         </div>
 
+
+                        <!-- FOOTER -->
+
                         <div class="d-flex justify-content-between align-items-center">
+
+
+                            <!-- LAST ONLINE -->
 
                             <small class="text-muted">
 
-                                <?php if (!empty($machine['last_online'])): ?>
+                                <?php if (
+                                    !empty($machine['last_online'])
+                                ): ?>
 
                                     Online terakhir
 
-                                    <?= date('d M Y H:i', strtotime($machine['last_online'])); ?>
+                                    <?= date(
+                                        'd M Y H:i',
+                                        strtotime(
+                                            $machine['last_online']
+                                        )
+                                    ); ?>
 
                                 <?php else: ?>
 
@@ -119,10 +178,20 @@
 
                             </small>
 
+
+                            <!-- ACTION -->
+
                             <div class="d-flex gap-2">
 
-                                <a href="<?= site_url('user/machine/' . $machine['id']); ?>"
-                                   class="btn btn-primary">
+
+                                <!-- DETAIL -->
+
+                                <a
+                                    href="<?= site_url(
+                                        'user/machine/' .
+                                        $machine['id']
+                                    ); ?>"
+                                    class="btn btn-primary">
 
                                     <i class="bi bi-eye me-1"></i>
 
@@ -130,13 +199,21 @@
 
                                 </a>
 
+
+                                <!-- USE -->
+
                                 <?php if (
-                                    $machine['status'] === 'online'
+                                    $realtimeStatus === 'online'
                                     && empty($machine['is_in_use'])
                                 ): ?>
 
-                                    <a href="<?= site_url('user/machine/' . $machine['id'] . '/use'); ?>"
-                                       class="btn btn-success">
+                                    <a
+                                        href="<?= site_url(
+                                            'user/machine/' .
+                                            $machine['id'] .
+                                            '/use'
+                                        ); ?>"
+                                        class="btn btn-success">
 
                                         <i class="bi bi-play-circle me-1"></i>
 
@@ -146,9 +223,11 @@
 
                                 <?php endif; ?>
 
+
                             </div>
 
                         </div>
+
 
                     </div>
 
@@ -156,21 +235,28 @@
 
             </div>
 
+
         <?php endforeach; ?>
+
 
     <?php else: ?>
 
+
         <div class="col-12">
 
-            <?= view('admin/components/empty-state', [
+            <?= view(
+                'admin/components/empty-state',
+                [
+                    'title' =>
+                        'Belum Ada Machine',
 
-                'title'       => 'Belum Ada Machine',
-
-                'description' => 'Belum ada machine yang terdaftar.'
-
-            ]); ?>
+                    'description' =>
+                        'Belum ada machine yang terdaftar.'
+                ]
+            ); ?>
 
         </div>
+
 
     <?php endif; ?>
 

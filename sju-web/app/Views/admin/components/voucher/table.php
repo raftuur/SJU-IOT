@@ -3,17 +3,14 @@
     <div class="panel-header d-flex justify-content-between align-items-center">
 
         <h5>
-
             <i class="bi bi-gift me-2"></i>
-
             Daftar Voucher
-
         </h5>
 
-        <a href="<?= site_url('voucher/create'); ?>" class="btn btn-success">
+        <a href="<?= site_url('voucher/create'); ?>"
+           class="btn btn-success">
 
             <i class="bi bi-plus-lg"></i>
-
             Tambah Voucher
 
         </a>
@@ -32,20 +29,32 @@
 
                         <tr>
 
-                            <th>Voucher</th>
+                            <th width="60">
+                                No
+                            </th>
 
-                            <th class="text-center">Point</th>
+                            <th>
+                                Voucher
+                            </th>
 
-                            <th class="text-center">Stok</th>
+                            <th class="text-center">
+                                Point
+                            </th>
 
-                            <th class="text-center">Redeem</th>
+                            <th class="text-center">
+                                Stok
+                            </th>
 
-                            <th class="text-center">Status</th>
+                            <th class="text-center">
+                                Redeem
+                            </th>
+
+                            <th class="text-center">
+                                Status
+                            </th>
 
                             <th width="120" class="text-center">
-
                                 Aksi
-
                             </th>
 
                         </tr>
@@ -54,33 +63,80 @@
 
                     <tbody>
 
-                        <?php foreach ($vouchers as $voucher): ?>
+                        <?php foreach ($vouchers as $index => $voucher): ?>
 
                             <tr>
 
+                                <!-- NO -->
+
                                 <td>
 
-                                    <strong>
-
-                                        <?= esc($voucher['title']) ?>
-
-                                    </strong>
-
-                                    <br>
-
-                                    <small class="text-muted">
-
-                                        <?= esc($voucher['code']) ?>
-
-                                    </small>
+                                    <?= $index + 1 ?>
 
                                 </td>
+
+
+                                <!-- VOUCHER -->
+
+                                <td>
+
+                                    <div class="voucher-info">
+
+                                        <?php if (!empty($voucher['image'])): ?>
+
+                                            <img
+                                                src="<?= base_url('uploads/vouchers/' . $voucher['image']); ?>"
+                                                alt="<?= esc($voucher['title']); ?>"
+                                                class="voucher-image">
+
+                                        <?php else: ?>
+
+                                            <div class="voucher-image voucher-image-empty">
+
+                                                <i class="bi bi-gift"></i>
+
+                                            </div>
+
+                                        <?php endif; ?>
+
+
+                                        <div class="voucher-content">
+
+                                            <strong>
+
+                                                <?= esc($voucher['title']) ?>
+
+                                            </strong>
+
+                                            <small>
+
+                                                Kode:
+                                                <?= esc($voucher['code']) ?>
+
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+
+                                <!-- POINT -->
 
                                 <td class="text-center">
 
-                                    <?= number_format($voucher['point'], 0, ',', '.') ?>
+                                    <?= number_format(
+                                        $voucher['point'],
+                                        0,
+                                        ',',
+                                        '.'
+                                    ) ?>
 
                                 </td>
+
+
+                                <!-- STOK -->
 
                                 <td class="text-center">
 
@@ -88,11 +144,17 @@
 
                                 </td>
 
+
+                                <!-- REDEEM -->
+
                                 <td class="text-center">
 
                                     <?= $voucher['redeemed'] ?>
 
                                 </td>
+
+
+                                <!-- STATUS -->
 
                                 <td class="text-center">
 
@@ -116,32 +178,35 @@
 
                                 </td>
 
+
+                                <!-- AKSI -->
+
                                 <td class="text-center">
 
                                     <div class="d-flex justify-content-center gap-2">
 
                                         <a
-                                            href="<?= site_url('voucher/'.$voucher['id']) ?>"
-                                            class="btn btn-sm btn-primary">
+                                            href="<?= site_url('voucher/' . $voucher['id']) ?>"
+                                            class="btn btn-sm btn-primary"
+                                            title="Detail">
 
                                             <i class="bi bi-eye"></i>
 
-                                            Detail
-
                                         </a>
 
+
                                         <a
-                                            href="<?= site_url('voucher/edit/'.$voucher['id']) ?>"
-                                            class="btn btn-sm btn-warning">
+                                            href="<?= site_url('voucher/edit/' . $voucher['id']) ?>"
+                                            class="btn btn-sm btn-warning"
+                                            title="Edit">
 
                                             <i class="bi bi-pencil-square"></i>
 
-                                            Edit
-
                                         </a>
 
+
                                         <form
-                                            action="<?= site_url('voucher/delete/'.$voucher['id']) ?>"
+                                            action="<?= site_url('voucher/delete/' . $voucher['id']) ?>"
                                             method="post"
                                             onsubmit="return confirm('Yakin ingin menghapus voucher ini?');">
 
@@ -149,11 +214,10 @@
 
                                             <button
                                                 type="submit"
-                                                class="btn btn-sm btn-danger">
+                                                class="btn btn-sm btn-danger"
+                                                title="Hapus">
 
                                                 <i class="bi bi-trash"></i>
-
-                                                Hapus
 
                                             </button>
 

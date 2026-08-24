@@ -1,154 +1,402 @@
-<div class="dashboard-panel">
+<div class="machine-detail-panel">
 
-    <div class="panel-header">
+    <!-- HEADER -->
+    <div class="machine-detail-header">
 
-        <h5>
+        <div class="machine-detail-title">
 
-            <i class="bi bi-cpu me-2"></i>
+            <h5>
+                <i class="bi bi-cpu"></i>
+                <?= esc($machine['machine_name'] ?? 'Detail Machine'); ?>
+            </h5>
 
-            Informasi Machine
+        </div>
 
-        </h5>
+        <a
+            href="<?= site_url('user/machine'); ?>"
+            class="machine-back-button">
+
+            <i class="bi bi-arrow-left"></i>
+
+            Kembali
+
+        </a>
 
     </div>
 
-    <div class="panel-body">
 
-        <div class="row g-4">
+    <!-- BODY -->
+    <div class="machine-detail-body">
 
-            <div class="col-md-6">
 
-                <label class="text-muted small">
+        <!-- INFORMASI MACHINE -->
+        <div class="machine-detail-grid">
 
-                    Nama Machine
+            <!-- MACHINE CODE -->
+            <div class="machine-detail-item">
 
-                </label>
+                <span class="machine-detail-label">
+                    Machine Code
+                </span>
 
-                <h5>
+                <strong class="machine-detail-value">
 
-                    <?= esc($machine['machine_name']); ?>
+                    <?= esc(
+                        $machine['machine_code'] ?? '-'
+                    ); ?>
 
-                </h5>
-
-            </div>
-
-            <div class="col-md-6">
-
-                <label class="text-muted small">
-
-                    Kode Machine
-
-                </label>
-
-                <h5>
-
-                    <?= esc($machine['machine_code']); ?>
-
-                </h5>
+                </strong>
 
             </div>
 
-            <div class="col-12">
 
-                <label class="text-muted small">
+            <!-- STATUS -->
+            <div class="machine-detail-item">
 
-                    Lokasi
-
-                </label>
-
-                <h6>
-
-                    <i class="bi bi-geo-alt-fill text-danger me-2"></i>
-
-                    <?= esc($machine['location']); ?>
-
-                </h6>
-
-            </div>
-
-            <div class="col-md-6">
-
-                <label class="text-muted small">
-
+                <span class="machine-detail-label">
                     Status
+                </span>
 
-                </label>
+                <?php
 
-                <div>
+                $status = strtolower(
+                    $machine['realtime_status']
+                    ?? $machine['status']
+                    ?? 'offline'
+                );
 
-                    <?php if ($machine['status'] == 'online'): ?>
+                ?>
 
-                        <span class="badge bg-success">
+                <?php if ($status === 'online'): ?>
 
-                            <i class="bi bi-check-circle-fill me-1"></i>
+                    <span class="machine-detail-status online">
 
-                            Online
+                        <span class="status-dot"></span>
 
-                        </span>
+                        <i class="bi bi-check-circle"></i>
 
-                    <?php elseif ($machine['status'] == 'maintenance'): ?>
+                        Online
 
-                        <span class="badge bg-warning text-dark">
+                    </span>
 
-                            <i class="bi bi-tools me-1"></i>
+                <?php elseif ($status === 'maintenance'): ?>
 
-                            Maintenance
+                    <span class="machine-detail-status maintenance">
 
-                        </span>
+                        <span class="status-dot"></span>
 
-                    <?php else: ?>
+                        <i class="bi bi-tools"></i>
 
-                        <span class="badge bg-danger">
+                        Maintenance
 
-                            <i class="bi bi-x-circle-fill me-1"></i>
+                    </span>
 
-                            Offline
+                <?php else: ?>
 
-                        </span>
+                    <span class="machine-detail-status offline">
 
-                    <?php endif; ?>
+                        <span class="status-dot"></span>
 
-                </div>
+                        <i class="bi bi-x-circle"></i>
+
+                        Offline
+
+                    </span>
+
+                <?php endif; ?>
 
             </div>
 
-            <div class="col-md-6">
 
-                <label class="text-muted small">
+            <!-- LOKASI -->
+            <div class="machine-detail-item full">
 
+                <span class="machine-detail-label">
+                    Lokasi
+                </span>
+
+                <strong class="machine-detail-value location">
+
+                    <i class="bi bi-geo-alt-fill"></i>
+
+                    <?= esc(
+                        $machine['location'] ?? '-'
+                    ); ?>
+
+                </strong>
+
+            </div>
+
+
+            <!-- ONLINE TERAKHIR -->
+            <div class="machine-detail-item">
+
+                <span class="machine-detail-label">
                     Online Terakhir
+                </span>
 
-                </label>
+                <strong class="machine-detail-value">
 
-                <h6>
+                    <i class="bi bi-clock"></i>
 
-                    <?= $machine['last_online']
-                        ? date('d F Y H:i', strtotime($machine['last_online']))
+                    <?= !empty($machine['last_online'])
+                        ? date(
+                            'd M Y H:i',
+                            strtotime(
+                                $machine['last_online']
+                            )
+                        )
                         : '-'; ?>
 
-                </h6>
+                </strong>
 
             </div>
 
-            <?php if (!empty($machine['latitude']) && !empty($machine['longitude'])): ?>
 
-                <div class="col-12">
+            <!-- FIRMWARE -->
+            <div class="machine-detail-item">
 
-                    <a href="https://www.google.com/maps?q=<?= $machine['latitude']; ?>,<?= $machine['longitude']; ?>"
-                       target="_blank"
-                       class="btn btn-outline-primary">
+                <span class="machine-detail-label">
+                    Firmware
+                </span>
 
-                        <i class="bi bi-geo-alt-fill me-2"></i>
+                <strong class="machine-detail-value">
 
-                        Buka di Google Maps
+                    <?= esc(
+                        $machine['firmware_version'] ?? '-'
+                    ); ?>
 
-                    </a>
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <!-- KONDISI MACHINE -->
+
+        <div class="machine-condition-section">
+
+            <div class="machine-section-title">
+
+                <h5>
+
+                    <i class="bi bi-speedometer2"></i>
+
+                    Kondisi Machine
+
+                </h5>
+
+            </div>
+
+
+            <div class="machine-condition-grid">
+
+
+                <!-- BERAT -->
+                <div class="machine-condition-card">
+
+                    <span class="machine-condition-label">
+                        Berat Saat Ini
+                    </span>
+
+                    <strong class="machine-condition-value">
+
+                        <?= number_format(
+                            $machine['sensor']['weight'] ?? 0,
+                            2
+                        ); ?>
+
+                        <small>Kg</small>
+
+                    </strong>
 
                 </div>
+
+
+                <!-- BIN -->
+                <div class="machine-condition-card">
+
+                    <span class="machine-condition-label">
+                        Kapasitas Bin
+                    </span>
+
+                    <strong class="machine-condition-value">
+
+                        <?= number_format(
+                            $machine['sensor']['bin_level'] ?? 0
+                        ); ?>
+
+                        <small>%</small>
+
+                    </strong>
+
+                </div>
+
+
+                <!-- SUHU -->
+                <div class="machine-condition-card">
+
+                    <span class="machine-condition-label">
+                        Suhu
+                    </span>
+
+                    <strong class="machine-condition-value">
+
+                        <?= number_format(
+                            $machine['sensor']['temperature'] ?? 0,
+                            1
+                        ); ?>
+
+                        <small>°C</small>
+
+                    </strong>
+
+                </div>
+
+
+                <!-- WIFI RSSI -->
+                <div class="machine-condition-card">
+
+                    <span class="machine-condition-label">
+                        WiFi RSSI
+                    </span>
+
+                    <strong class="machine-condition-value">
+
+                        <?= number_format(
+                            $machine['sensor']['wifi_rssi'] ?? 0
+                        ); ?>
+
+                        <small>dBm</small>
+
+                    </strong>
+
+                </div>
+
+
+                <!-- TEGANGAN -->
+                <div class="machine-condition-card">
+
+                    <span class="machine-condition-label">
+                        Tegangan
+                    </span>
+
+                    <strong class="machine-condition-value">
+
+                        <?= number_format(
+                            $machine['sensor']['voltage'] ?? 0,
+                            2
+                        ); ?>
+
+                        <small>V</small>
+
+                    </strong>
+
+                </div>
+
+
+                <!-- FIRMWARE -->
+                <div class="machine-condition-card">
+
+                    <span class="machine-condition-label">
+                        Firmware
+                    </span>
+
+                    <strong class="machine-condition-value">
+
+                        <?= esc(
+                            $machine['firmware_version'] ?? '-'
+                        ); ?>
+
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <!-- GOOGLE MAPS -->
+
+        <?php if (
+            !empty($machine['latitude']) &&
+            !empty($machine['longitude'])
+        ): ?>
+
+            <div class="machine-detail-map">
+
+                <a
+                    href="https://www.google.com/maps?q=<?= esc($machine['latitude']); ?>,<?= esc($machine['longitude']); ?>"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="machine-map-button">
+
+                    <i class="bi bi-geo-alt-fill"></i>
+
+                    Buka di Google Maps
+
+                    <i class="bi bi-box-arrow-up-right"></i>
+
+                </a>
+
+            </div>
+
+        <?php endif; ?>
+
+
+        <!-- ACTION -->
+
+        <div class="machine-detail-actions">
+
+            <?php if ($status === 'online'): ?>
+
+                <a
+                    href="<?= site_url(
+                        'user/machine/' .
+                        $machine['id'] .
+                        '/use'
+                    ); ?>"
+                    class="machine-use-button">
+
+                    <i class="bi bi-recycle"></i>
+
+                    Gunakan Machine
+
+                </a>
+
+            <?php elseif ($status === 'maintenance'): ?>
+
+                <button
+                    type="button"
+                    class="machine-disabled-button"
+                    disabled>
+
+                    <i class="bi bi-tools"></i>
+
+                    Machine Maintenance
+
+                </button>
+
+            <?php else: ?>
+
+                <button
+                    type="button"
+                    class="machine-disabled-button"
+                    disabled>
+
+                    <i class="bi bi-x-circle"></i>
+
+                    Machine Offline
+
+                </button>
 
             <?php endif; ?>
 
         </div>
+
 
     </div>
 

@@ -1,96 +1,136 @@
-// =====================================================
-// TRANSACTION CHART
-// =====================================================
+document.addEventListener('DOMContentLoaded', function () {
 
-const canvas = document.getElementById('transactionChart');
+    // =====================================================
+    // TRANSACTION CHART
+    // =====================================================
 
-if (canvas) {
+    const canvas = document.getElementById('transactionChart');
 
-    const ctx = canvas.getContext('2d');
+    if (canvas && typeof Chart !== 'undefined') {
 
-    new Chart(ctx, {
+        const chartDataElement =
+            document.getElementById('dashboardChartData');
 
-        type: 'line',
+        let chartData = [];
 
-        data: {
+        if (chartDataElement) {
 
-            labels: [
-                'Sen',
-                'Sel',
-                'Rab',
-                'Kam',
-                'Jum',
-                'Sab',
-                'Min'
-            ],
+            try {
 
-            datasets: [{
+                chartData = JSON.parse(
+                    chartDataElement.textContent
+                );
 
-                label: 'Botol',
+            } catch (error) {
 
-                data: [
-                    25,
-                    40,
-                    32,
-                    55,
-                    45,
-                    70,
-                    60
-                ],
+                console.error(
+                    'Gagal membaca data grafik:',
+                    error
+                );
 
-                borderColor: '#16A34A',
+            }
 
-                backgroundColor: 'rgba(22,163,74,.12)',
+        }
 
-                borderWidth: 3,
 
-                fill: true,
+        const labels = chartData.map(function (item) {
 
-                tension: 0.4,
+            const date = new Date(
+                item.date + 'T00:00:00'
+            );
 
-                pointRadius: 4
-
-            }]
-
-        },
-
-        options: {
-
-            responsive: true,
-
-            maintainAspectRatio: false,
-
-            plugins: {
-
-                legend: {
-                    display: true
+            return date.toLocaleDateString(
+                'id-ID',
+                {
+                    weekday: 'short'
                 }
+            );
+
+        });
+
+
+        const bottleData = chartData.map(function (item) {
+
+            return Number(item.bottle || 0);
+
+        });
+
+
+        const ctx = canvas.getContext('2d');
+
+
+        new Chart(ctx, {
+
+            type: 'line',
+
+            data: {
+
+                labels: labels,
+
+                datasets: [{
+
+                    label: 'Botol',
+
+                    data: bottleData,
+
+                    borderColor: '#16A34A',
+
+                    backgroundColor:
+                        'rgba(22,163,74,.12)',
+
+                    borderWidth: 3,
+
+                    fill: true,
+
+                    tension: 0.4,
+
+                    pointRadius: 4,
+
+                    pointHoverRadius: 6
+
+                }]
 
             },
 
-            scales: {
+            options: {
 
-                y: {
+                responsive: true,
 
-                    beginAtZero: true,
+                maintainAspectRatio: false,
 
-                    title: {
+                plugins: {
 
-                        display: true,
-
-                        text: 'Jumlah Botol'
-
+                    legend: {
+                        display: true
                     }
 
                 },
 
-                x: {
+                scales: {
 
-                    title: {
+                    y: {
 
-                        display: true,
+                        beginAtZero: true,
 
-                        text: 'Hari'
+                        title: {
+
+                            display: true,
+
+                            text: 'Jumlah Botol'
+
+                        }
+
+                    },
+
+                    x: {
+
+                        title: {
+
+                            display: true,
+
+                            text: 'Hari'
+
+                        }
 
                     }
 
@@ -98,90 +138,105 @@ if (canvas) {
 
             }
 
-        }
+        });
 
-    });
-
-}
+    }
 
 
-// =====================================================
-// ADMIN SIDEBAR
-// =====================================================
+    // =====================================================
+    // ADMIN SIDEBAR
+    // =====================================================
 
-document.addEventListener('DOMContentLoaded', function () {
+    const menuToggle =
+        document.querySelector('.menu-toggle');
 
-    const menuToggle = document.querySelector('.menu-toggle');
-    const sidebar = document.querySelector('.sidebar');
-    const sidebarLinks = document.querySelectorAll('.sidebar-link');
+    const sidebar =
+        document.querySelector('.sidebar');
+
+    const sidebarLinks =
+        document.querySelectorAll('.sidebar-link');
+
 
     if (!menuToggle || !sidebar) {
         return;
     }
 
 
-    // =================================================
+    // =====================================================
     // BUKA / TUTUP SIDEBAR
-    // =================================================
+    // =====================================================
 
-    menuToggle.addEventListener('click', function (event) {
+    menuToggle.addEventListener(
+        'click',
+        function (event) {
 
-        event.stopPropagation();
+            event.stopPropagation();
 
-        sidebar.classList.toggle('active');
+            sidebar.classList.toggle('active');
 
-    });
+        }
+    );
 
 
-    // =================================================
+    // =====================================================
     // KLIK MENU
-    // =================================================
+    // =====================================================
 
     sidebarLinks.forEach(function (link) {
 
-        link.addEventListener('click', function () {
+        link.addEventListener(
+            'click',
+            function () {
 
-            if (window.innerWidth <= 992) {
+                if (window.innerWidth <= 992) {
 
-                sidebar.classList.remove('active');
+                    sidebar.classList.remove(
+                        'active'
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+
+    // =====================================================
+    // KLIK DI LUAR SIDEBAR
+    // =====================================================
+
+    document.addEventListener(
+        'click',
+        function (event) {
+
+            if (window.innerWidth > 992) {
+                return;
+            }
+
+            if (!sidebar.classList.contains('active')) {
+                return;
+            }
+
+            const clickedInsideSidebar =
+                sidebar.contains(event.target);
+
+            const clickedMenuToggle =
+                menuToggle.contains(event.target);
+
+
+            if (
+                !clickedInsideSidebar &&
+                !clickedMenuToggle
+            ) {
+
+                sidebar.classList.remove(
+                    'active'
+                );
 
             }
 
-        });
-
-    });
-
-
-    // =================================================
-    // KLIK DI LUAR SIDEBAR
-    // =================================================
-
-    document.addEventListener('click', function (event) {
-
-        if (window.innerWidth > 992) {
-            return;
         }
-
-        if (!sidebar.classList.contains('active')) {
-            return;
-        }
-
-        const clickedInsideSidebar =
-            sidebar.contains(event.target);
-
-        const clickedMenuToggle =
-            menuToggle.contains(event.target);
-
-
-        if (
-            !clickedInsideSidebar &&
-            !clickedMenuToggle
-        ) {
-
-            sidebar.classList.remove('active');
-
-        }
-
-    });
+    );
 
 });

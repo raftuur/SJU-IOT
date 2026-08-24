@@ -1,89 +1,841 @@
-.machine-timeline{
+/* ===========================================================
+   MACHINE USER
+=========================================================== */
 
-    position:relative;
-
-    margin-top:20px;
-
+.machine-page {
+    width: 100%;
+    min-width: 0;
 }
 
-.timeline-item{
 
-    display:flex;
+/* ===========================================================
+   PANEL
+=========================================================== */
 
-    gap:18px;
-
-    position:relative;
-
-    padding-bottom:28px;
-
+.machine-panel {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, .04);
 }
 
-.timeline-item:last-child{
 
-    padding-bottom:0;
+/* ===========================================================
+   PANEL HEADER
+=========================================================== */
 
+.machine-panel-header {
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 18px 24px;
+    border-bottom: 1px solid #E2E8F0;
 }
 
-.timeline-item::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:21px;
-
-    top:45px;
-
-    width:2px;
-
-    height:calc(100% - 10px);
-
-    background:#E2E8F0;
-
+.machine-panel-header h5 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0;
+    color: #0F172A;
+    font-size: 18px;
+    font-weight: 700;
 }
 
-.timeline-item:last-child::before{
-
-    display:none;
-
+.machine-panel-header h5 i {
+    color: #16A34A;
 }
 
-.timeline-icon{
 
-    width:42px;
+/* ===========================================================
+   PANEL BODY
+=========================================================== */
 
-    height:42px;
-
-    border-radius:50%;
-
-    color:#fff;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    flex-shrink:0;
-
-    font-size:18px;
-
+.machine-panel-body {
+    padding: 28px;
 }
 
-.timeline-content h6{
 
-    margin-bottom:6px;
+/* ===========================================================
+   MACHINE GRID
+=========================================================== */
 
-    font-weight:600;
-
+.machine-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
 }
 
-.timeline-content p{
 
-    margin:0;
+/* ===========================================================
+   MACHINE CARD
+=========================================================== */
 
-    color:#64748B;
+.machine-card {
+    min-width: 0;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
 
-    line-height:1.6;
+.machine-card:hover {
+    transform: translateY(-3px);
+    border-color: #BBF7D0;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .07);
+}
 
+.machine-card-body {
+    padding: 20px;
+}
+
+
+/* ===========================================================
+   CARD HEADER
+=========================================================== */
+
+.machine-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.machine-title {
+    min-width: 0;
+}
+
+.machine-title h5 {
+    margin: 0 0 5px;
+    color: #0F172A;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+.machine-title span {
+    color: #64748B;
+    font-size: 13px;
+}
+
+
+/* ===========================================================
+   STATUS
+=========================================================== */
+
+.machine-status {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.machine-status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: block;
+}
+
+.machine-status.online {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+.machine-status.online .machine-status-dot {
+    background: #16A34A;
+}
+
+.machine-status.maintenance {
+    background: #FEF3C7;
+    color: #B45309;
+}
+
+.machine-status.maintenance .machine-status-dot {
+    background: #F59E0B;
+}
+
+.machine-status.offline {
+    background: #FEE2E2;
+    color: #B91C1C;
+}
+
+.machine-status.offline .machine-status-dot {
+    background: #DC2626;
+}
+
+.machine-status.in-use {
+    background: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.machine-status.in-use .machine-status-dot {
+    background: #2563EB;
+}
+
+
+/* ===========================================================
+   DIVIDER
+=========================================================== */
+
+.machine-divider {
+    height: 1px;
+    margin: 18px 0;
+    background: #F1F5F9;
+}
+
+
+/* ===========================================================
+   MACHINE INFO
+=========================================================== */
+
+.machine-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+    min-width: 0;
+}
+
+.machine-info:last-of-type {
+    margin-bottom: 20px;
+}
+
+.machine-info-icon {
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: #F0FDF4;
+    color: #16A34A;
+    font-size: 17px;
+}
+
+.machine-info small {
+    display: block;
+    margin-bottom: 3px;
+    color: #94A3B8;
+    font-size: 12px;
+}
+
+.machine-info strong {
+    display: block;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+
+/* ===========================================================
+   MACHINE ACTIONS
+=========================================================== */
+
+.machine-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.machine-detail-button,
+.machine-use-button {
+    flex: 1;
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .2s ease;
+    box-sizing: border-box;
+}
+
+.machine-detail-button {
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    color: #15803D;
+}
+
+.machine-detail-button:hover {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+.machine-use-button {
+    background: #16A34A;
+    border: 1px solid #16A34A;
+    color: #FFFFFF;
+}
+
+.machine-use-button:hover {
+    background: #15803D;
+    border-color: #15803D;
+    color: #FFFFFF;
+}
+
+
+/* ===========================================================
+   EMPTY STATE
+=========================================================== */
+
+.machine-empty {
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.machine-empty-icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 50%;
+    background: #ECFDF5;
+    color: #16A34A;
+    font-size: 32px;
+}
+
+.machine-empty h5 {
+    margin: 0 0 8px;
+    color: #0F172A;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.machine-empty p {
+    margin: 0;
+    color: #64748B;
+    font-size: 14px;
+}
+
+
+/* ===========================================================
+   MACHINE DETAIL
+=========================================================== */
+
+.machine-detail-panel {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(15, 23, 42, .04);
+}
+
+
+/* ===========================================================
+   MACHINE DETAIL HEADER
+=========================================================== */
+
+.machine-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 22px 28px;
+    border-bottom: 1px solid #E2E8F0;
+    gap: 20px;
+}
+
+.machine-detail-title {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.machine-detail-title h5 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0F172A;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.machine-detail-title h5 i {
+    color: #16A34A;
+}
+
+
+/* ===========================================================
+   BUTTON KEMBALI
+=========================================================== */
+
+.machine-back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    flex-shrink: 0;
+    padding: 8px 15px;
+    min-height: 38px;
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 9px;
+    color: #475569;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all .2s ease;
+}
+
+.machine-back-button:hover {
+    background: #F8FAFC;
+    border-color: #94A3B8;
+    color: #0F172A;
+}
+
+
+/* ===========================================================
+   MACHINE DETAIL BODY
+=========================================================== */
+
+.machine-detail-body {
+    padding: 28px;
+}
+
+.machine-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.machine-detail-item {
+    min-width: 0;
+    padding: 18px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+}
+
+.machine-detail-item.full {
+    grid-column: 1 / -1;
+}
+
+.machine-detail-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.machine-detail-value {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #0F172A;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.machine-detail-value.location {
+    color: #334155;
+}
+
+.machine-detail-value.location i {
+    color: #16A34A;
+    flex-shrink: 0;
+}
+
+.machine-detail-value > i {
+    color: #64748B;
+    flex-shrink: 0;
+}
+
+
+/* ===========================================================
+   DETAIL STATUS
+=========================================================== */
+
+.machine-detail-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    width: fit-content;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.machine-detail-status .status-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.machine-detail-status.online {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+.machine-detail-status.online .status-dot {
+    background: #16A34A;
+}
+
+.machine-detail-status.maintenance {
+    background: #FEF3C7;
+    color: #B45309;
+}
+
+.machine-detail-status.maintenance .status-dot {
+    background: #F59E0B;
+}
+
+.machine-detail-status.offline {
+    background: #FEE2E2;
+    color: #B91C1C;
+}
+
+.machine-detail-status.offline .status-dot {
+    background: #DC2626;
+}
+
+
+/* ===========================================================
+   GOOGLE MAPS
+=========================================================== */
+
+.machine-detail-map {
+    grid-column: 1 / -1;
+    padding-top: 8px;
+}
+
+.machine-map-button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    background: #F0FDF4;
+    border: 1px solid #BBF7D0;
+    color: #15803D;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.machine-map-button:hover {
+    background: #DCFCE7;
+    border-color: #86EFAC;
+    color: #15803D;
+}
+
+.machine-map-button i:last-child {
+    font-size: 12px;
+}
+
+
+/* ===========================================================
+   CONDITION SECTION
+=========================================================== */
+
+.machine-condition-section {
+    margin-top: 30px;
+}
+
+.machine-section-title {
+    margin-bottom: 16px;
+}
+
+.machine-section-title h5 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin: 0;
+    color: #0F172A;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.machine-section-title h5 i {
+    color: #16A34A;
+}
+
+
+/* ===========================================================
+   CONDITION GRID
+=========================================================== */
+
+.machine-condition-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+
+/* ===========================================================
+   CONDITION CARD
+=========================================================== */
+
+.machine-condition-card {
+    min-width: 0;
+    padding: 20px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 14px;
+    transition: .2s ease;
+}
+
+.machine-condition-card:hover {
+    border-color: #BBF7D0;
+    box-shadow: 0 6px 16px rgba(15, 23, 42, .04);
+}
+
+.machine-condition-label {
+    display: block;
+    margin-bottom: 8px;
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.machine-condition-value {
+    display: block;
+    color: #0F172A;
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.machine-condition-value small {
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748B;
+    margin-left: 4px;
+}
+
+
+/* ===========================================================
+   DETAIL ACTION
+=========================================================== */
+
+.machine-detail-actions {
+    display: flex;
+    margin-top: 28px;
+    padding-top: 22px;
+    border-top: 1px solid #E2E8F0;
+}
+
+.machine-use-button,
+.machine-disabled-button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.machine-use-button {
+    background: #16A34A;
+    border: 1px solid #16A34A;
+    color: #FFFFFF;
+}
+
+.machine-use-button:hover {
+    background: #15803D;
+    border-color: #15803D;
+    color: #FFFFFF;
+}
+
+.machine-disabled-button {
+    background: #E2E8F0;
+    border: 1px solid #E2E8F0;
+    color: #64748B;
+    cursor: not-allowed;
+}
+
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+/* Large Tablet */
+@media (max-width: 1200px) {
+    .machine-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .machine-condition-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    .machine-panel-body {
+        padding: 20px;
+    }
+
+    .machine-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .machine-detail-header {
+        padding: 16px 20px;
+    }
+
+    .machine-detail-body {
+        padding: 20px;
+    }
+
+    .machine-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .machine-detail-item.full,
+    .machine-detail-map {
+        grid-column: auto;
+    }
+
+    .machine-condition-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .machine-detail-map {
+        padding-top: 6px;
+    }
+
+    .machine-map-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+    .machine-panel {
+        border-radius: 16px;
+    }
+
+    .machine-panel-header {
+        min-height: 64px;
+        padding: 16px;
+    }
+
+    .machine-panel-header h5 {
+        font-size: 16px;
+    }
+
+    .machine-panel-body {
+        padding: 16px;
+    }
+
+    .machine-card-body {
+        padding: 18px;
+    }
+
+    .machine-card-header {
+        flex-direction: column;
+    }
+
+    .machine-status {
+        align-self: flex-start;
+    }
+
+    .machine-actions {
+        flex-direction: column;
+    }
+
+    .machine-detail-button,
+    .machine-use-button {
+        width: 100%;
+    }
+
+    .machine-detail-header {
+        align-items: flex-start;
+        padding: 16px 18px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .machine-detail-header h5 {
+        font-size: 16px;
+    }
+
+    .machine-back-button {
+        padding: 7px 10px;
+    }
+
+    .machine-detail-body {
+        padding: 16px;
+    }
+
+    .machine-detail-grid {
+        gap: 14px;
+    }
+
+    .machine-detail-item {
+        padding: 15px;
+    }
+
+    .machine-detail-map {
+        padding-top: 4px;
+    }
+
+    .machine-map-button {
+        width: 100%;
+    }
+
+    .machine-condition-card {
+        padding: 16px;
+    }
+
+    .machine-condition-value {
+        font-size: 22px;
+    }
+
+    .machine-condition-value small {
+        font-size: 13px;
+    }
+
+    .machine-detail-actions {
+        flex-direction: column;
+    }
+
+    .machine-use-button,
+    .machine-disabled-button {
+        width: 100%;
+    }
 }

@@ -16,9 +16,9 @@
 
         <?php if (!empty($wallets)): ?>
 
-            <div class="table-responsive">
+            <div class="machine-table-wrapper">
 
-                <table class="table table-hover align-middle">
+                <table class="custom-table machine-table">
 
                     <thead>
 

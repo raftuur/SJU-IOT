@@ -1,0 +1,151 @@
+/* ===========================================================
+   WALLET PAGE
+=========================================================== */
+
+.wallet-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: thin;
+    scrollbar-color: #CBD5E1 transparent;
+}
+
+
+/* ===========================================================
+   WALLET TABLE
+=========================================================== */
+
+.wallet-table {
+    width: 100%;
+
+    min-width: 850px;
+
+    margin-bottom: 0;
+
+    white-space: nowrap;
+}
+
+.wallet-table th {
+    padding: 16px 20px;
+
+    color: #64748B;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    background: #F8FAFC;
+
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.wallet-table td {
+    padding: 18px 20px;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+
+    vertical-align: middle;
+
+    border-bottom: 1px solid #EEF2F7;
+}
+
+.wallet-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* ===========================================================
+   USER NAME
+=========================================================== */
+
+.wallet-table td:first-child {
+    min-width: 180px;
+}
+
+.wallet-table td:nth-child(2) {
+    min-width: 230px;
+}
+
+
+/* ===========================================================
+   POINT
+=========================================================== */
+
+.wallet-table td:nth-child(3),
+.wallet-table td:nth-child(4),
+.wallet-table td:nth-child(5) {
+    min-width: 130px;
+}
+
+
+/* ===========================================================
+   ACTION
+=========================================================== */
+
+.wallet-table td:last-child {
+    min-width: 120px;
+}
+
+
+/* ===========================================================
+   SCROLLBAR
+=========================================================== */
+
+.wallet-table-wrapper::-webkit-scrollbar {
+    height: 6px;
+}
+
+.wallet-table-wrapper::-webkit-scrollbar-track {
+    background: #F8FAFC;
+}
+
+.wallet-table-wrapper::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+
+    border-radius: 10px;
+}
+
+.wallet-table-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+}
+
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width: 576px) {
+
+    .wallet-table-wrapper {
+        margin: 0;
+
+        padding-bottom: 4px;
+    }
+
+    .wallet-table {
+        min-width: 850px;
+    }
+
+    .wallet-table th {
+        padding: 14px 16px;
+
+        font-size: 13px;
+    }
+
+    .wallet-table td {
+        padding: 16px;
+
+        font-size: 14px;
+    }
+
+}

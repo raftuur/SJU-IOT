@@ -1,0 +1,821 @@
+/* ===========================================================
+   WITHDRAWAL USER
+=========================================================== */
+
+.withdrawal-page,
+.withdrawal-create-page {
+    width: 100%;
+    min-width: 0;
+}
+
+.withdrawal-page {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+
+/* ===========================================================
+   STATISTICS
+=========================================================== */
+
+.withdrawal-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.withdrawal-stats .stats-card {
+    min-width: 0;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 18px;
+    padding: 20px;
+    transition: .2s ease;
+}
+
+.withdrawal-stats .stats-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+}
+
+.withdrawal-stats .stats-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    border-radius: 16px;
+    background: #DCFCE7;
+    color: #16A34A;
+    font-size: 24px;
+}
+
+.withdrawal-stats .stats-title {
+    color: #64748B;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.withdrawal-stats .stats-value {
+    margin-top: 10px;
+    color: #0F172A;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.withdrawal-stats .stats-footer {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid #F1F5F9;
+    color: #94A3B8;
+    font-size: 13px;
+}
+
+
+/* ===========================================================
+   FILTER CONTAINER
+=========================================================== */
+
+.withdrawal-filter {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+
+/* ===========================================================
+   FILTER HEADER
+=========================================================== */
+
+.withdrawal-filter-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.withdrawal-filter-header h5 {
+    margin: 0;
+    color: #0F172A;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+/* ===========================================================
+   FILTER BODY
+=========================================================== */
+
+.withdrawal-filter-body {
+    padding: 20px 24px;
+}
+
+
+/* ===========================================================
+   FILTER FORM
+=========================================================== */
+
+.withdrawal-filter-form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(220px, 1fr) auto;
+    gap: 16px;
+    align-items: end;
+    box-sizing: border-box;
+}
+
+
+/* ===========================================================
+   FILTER GROUP
+=========================================================== */
+
+.withdrawal-filter-group {
+    min-width: 0;
+}
+
+.withdrawal-filter-group label {
+    display: block;
+    margin: 0 0 8px;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+/* ===========================================================
+   FILTER INPUT
+=========================================================== */
+
+.withdrawal-filter-group .form-control,
+.withdrawal-filter-group .form-select {
+    width: 100% !important;
+    height: 44px !important;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: #0F172A;
+    font-size: 14px;
+    box-shadow: none;
+    outline: none;
+}
+
+.withdrawal-filter-group .form-control::placeholder {
+    color: #94A3B8;
+}
+
+.withdrawal-filter-group .form-control:focus,
+.withdrawal-filter-group .form-select:focus {
+    border-color: #16A34A;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, .10);
+}
+
+
+/* ===========================================================
+   FILTER ACTION
+=========================================================== */
+
+.withdrawal-filter-actions {
+    height: 44px;
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.withdrawal-filter-actions .btn {
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.withdrawal-filter-actions .btn-reset {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: #475569;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.withdrawal-filter-actions .btn-reset:hover {
+    background: #F8FAFC;
+    border-color: #94A3B8;
+    color: #0F172A;
+}
+
+
+/* ===========================================================
+   HISTORY
+=========================================================== */
+
+.withdrawal-history {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+
+/* ===========================================================
+   HISTORY HEADER
+=========================================================== */
+
+.withdrawal-history-header {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.withdrawal-history-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.withdrawal-history-title i {
+    flex-shrink: 0;
+    color: #16A34A;
+    font-size: 18px;
+}
+
+.withdrawal-history-title h5 {
+    margin: 0;
+    color: #0F172A;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.withdrawal-history-header .btn {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ===========================================================
+   TABLE
+=========================================================== */
+
+.withdrawal-history .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.withdrawal-table {
+    width: 100%;
+    min-width: 760px;
+    margin: 0;
+    border-collapse: collapse;
+}
+
+.withdrawal-table thead th {
+    padding: 16px 20px;
+    background: #F8FAFC;
+    border-bottom: 1px solid #E2E8F0;
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.withdrawal-table tbody td {
+    padding: 17px 20px;
+    border-bottom: 1px solid #F1F5F9;
+    color: #334155;
+    font-size: 14px;
+    vertical-align: middle;
+}
+
+.withdrawal-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.withdrawal-table tbody tr:hover {
+    background: #F8FAFC;
+}
+
+.withdrawal-table strong {
+    color: #0F172A;
+    font-weight: 600;
+}
+
+
+/* ===========================================================
+   STATUS BADGE
+=========================================================== */
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 86px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.status-badge.pending {
+    background: #FEF3C7;
+    color: #B45309;
+}
+
+.status-badge.processing {
+    background: #DBEAFE;
+    color: #2563EB;
+}
+
+.status-badge.success {
+    background: #DCFCE7;
+    color: #15803D;
+}
+
+.status-badge.danger {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+
+/* ===========================================================
+   DETAIL BUTTON
+=========================================================== */
+
+.btn-detail {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 34px;
+    padding: 6px 12px;
+    border: 1px solid #DBEAFE;
+    border-radius: 8px;
+    background: #EFF6FF;
+    color: #2563EB;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: .2s ease;
+}
+
+.btn-detail:hover {
+    background: #DBEAFE;
+    border-color: #BFDBFE;
+    color: #1D4ED8;
+}
+
+
+/* ===========================================================
+   EMPTY STATE
+=========================================================== */
+
+.withdrawal-empty {
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.withdrawal-empty-icon {
+    width: 88px;
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    background: #ECFDF5;
+    color: #16A34A;
+    font-size: 40px;
+}
+
+.withdrawal-empty h5 {
+    margin: 0 0 8px;
+    color: #0F172A;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.withdrawal-empty p {
+    margin: 0;
+    color: #64748B;
+    font-size: 14px;
+}
+
+.withdrawal-empty .btn {
+    min-height: 42px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ===========================================================
+   CREATE WITHDRAWAL
+=========================================================== */
+
+.withdrawal-form-panel {
+    width: 100% !important;
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    box-sizing: border-box;
+}
+
+
+/* ===========================================================
+   FORM HEADER
+=========================================================== */
+
+.withdrawal-form-header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 76px;
+    padding: 20px 24px;
+    background: #FFFFFF;
+    border-bottom: 1px solid #E2E8F0;
+    box-sizing: border-box;
+}
+
+.withdrawal-form-header h5 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    color: #0F172A;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.withdrawal-form-header h5 i {
+    color: #16A34A;
+    font-size: 18px;
+}
+
+
+/* ===========================================================
+   FORM BODY
+=========================================================== */
+
+.withdrawal-form-body {
+    width: 100%;
+    padding: 32px 44px;
+    background: #FFFFFF;
+    box-sizing: border-box;
+}
+
+
+/* ===========================================================
+   FORM GRID
+=========================================================== */
+
+.withdrawal-form-grid {
+    width: 100%;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    gap: 24px;
+    box-sizing: border-box;
+}
+
+
+/* ===========================================================
+   FORM GROUP
+=========================================================== */
+
+.withdrawal-form-group {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.withdrawal-form-group label {
+    display: block;
+    width: 100%;
+    margin: 0 0 8px;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+
+/* ===========================================================
+   INPUT & SELECT
+=========================================================== */
+
+.withdrawal-form-group .form-control,
+.withdrawal-form-group .form-select {
+    display: block;
+    width: 100% !important;
+    height: 48px !important;
+    min-height: 48px;
+    margin: 0;
+    padding: 0 14px;
+    background-color: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    color: #0F172A;
+    font-size: 14px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    box-shadow: none;
+}
+
+.withdrawal-form-group .form-control::placeholder {
+    color: #94A3B8;
+    opacity: 1;
+}
+
+.withdrawal-form-group .form-control:hover,
+.withdrawal-form-group .form-select:hover {
+    border-color: #94A3B8;
+}
+
+.withdrawal-form-group .form-control:focus,
+.withdrawal-form-group .form-select:focus {
+    border-color: #16A34A;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, 0.10);
+}
+
+
+/* ===========================================================
+   FORM ACTION
+=========================================================== */
+
+.withdrawal-form-actions {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid #F1F5F9;
+    box-sizing: border-box;
+}
+
+
+/* ===========================================================
+   BACK BUTTON
+=========================================================== */
+
+.withdrawal-form-actions .btn-back {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 17px;
+    background: #FFFFFF;
+    border: 1px solid #CBD5E1;
+    border-radius: 10px;
+    color: #475569;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+
+.withdrawal-form-actions .btn-back:hover {
+    background: #F8FAFC;
+    border-color: #94A3B8;
+    color: #0F172A;
+}
+
+
+/* ===========================================================
+   SUBMIT BUTTON
+=========================================================== */
+
+.withdrawal-form-actions .btn-success {
+    min-height: 42px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    box-sizing: border-box;
+}
+
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+
+/* Large Tablet */
+@media (max-width: 1200px) {
+    .withdrawal-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .withdrawal-filter-form {
+        grid-template-columns: minmax(0, 1fr) minmax(200px, 1fr);
+        row-gap: 16px;
+    }
+
+    .withdrawal-filter-actions {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .withdrawal-page {
+        gap: 20px;
+    }
+
+    .withdrawal-filter-body {
+        padding: 18px 20px;
+    }
+
+    .withdrawal-history-header {
+        padding: 18px 20px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .withdrawal-stats {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .withdrawal-filter-form {
+        grid-template-columns: 1fr;
+        row-gap: 16px;
+    }
+
+    .withdrawal-filter-actions {
+        grid-column: auto;
+        width: 100%;
+    }
+
+    .withdrawal-filter-actions .btn {
+        flex: 1;
+    }
+
+    .withdrawal-filter-actions .btn-reset {
+        flex: 0 0 44px;
+    }
+
+    .withdrawal-history-header {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    .withdrawal-history-header .btn {
+        width: 100%;
+    }
+
+    .withdrawal-empty {
+        min-height: 300px;
+        padding: 30px 18px;
+    }
+
+    /* Create withdrawal mobile */
+    .withdrawal-form-body {
+        padding: 24px 20px;
+    }
+
+    .withdrawal-form-grid {
+        grid-template-columns: 1fr !important;
+        gap: 18px;
+    }
+
+    .withdrawal-form-actions {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .withdrawal-form-actions .btn-back,
+    .withdrawal-form-actions .btn-success {
+        width: 100%;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 576px) {
+    .withdrawal-page {
+        gap: 16px;
+    }
+
+    .withdrawal-stats .stats-card {
+        padding: 18px;
+        border-radius: 16px;
+    }
+
+    .withdrawal-stats .stats-icon {
+        width: 48px;
+        height: 48px;
+        margin-bottom: 14px;
+        border-radius: 14px;
+        font-size: 21px;
+    }
+
+    .withdrawal-stats .stats-value {
+        font-size: 30px;
+    }
+
+    .withdrawal-filter-header {
+        padding: 17px 18px;
+    }
+
+    .withdrawal-filter-header h5 {
+        font-size: 16px;
+    }
+
+    .withdrawal-filter-body {
+        padding: 18px;
+    }
+
+    .withdrawal-history-title h5 {
+        font-size: 16px;
+    }
+
+    .withdrawal-empty-icon {
+        width: 76px;
+        height: 76px;
+        font-size: 34px;
+    }
+
+    .withdrawal-empty h5 {
+        font-size: 19px;
+    }
+
+    /* Create withdrawal small mobile */
+    .withdrawal-form-header {
+        min-height: 64px;
+        padding: 18px;
+    }
+
+    .withdrawal-form-header h5 {
+        font-size: 16px;
+    }
+
+    .withdrawal-form-body {
+        padding: 20px 16px;
+    }
+}
+
+/* Very Small Mobile */
+@media (max-width: 400px) {
+    .withdrawal-stats .stats-card {
+        padding: 16px;
+    }
+
+    .withdrawal-filter-actions {
+        gap: 6px;
+    }
+
+    .withdrawal-filter-actions .btn {
+        padding: 0 12px;
+    }
+
+    .withdrawal-history-header {
+        padding: 16px;
+    }
+}

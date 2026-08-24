@@ -72,22 +72,11 @@ class MonitoringService
 
         foreach ($machines as &$machine) {
 
-            // Status maintenance tetap diprioritaskan
-            if ($machine['status'] === 'maintenance') {
-
-                $machine['realtime_status'] = 'maintenance';
-
-            } else {
-
-                $machine['realtime_status'] = $this->isMachineOnline(
-                    $machine['heartbeat_at']
-                )
-                    ? 'online'
-                    : 'offline';
-
-            }
+            $machine['realtime_status'] = $machine['status'];
 
         }
+
+        unset($machine);
 
         return $machines;
     }
@@ -103,19 +92,8 @@ class MonitoringService
             return null;
         }
 
-        // Status realtime
-        if ($machine['status'] === 'maintenance') {
-
-            $machine['realtime_status'] = 'maintenance';
-
-        } else {
-
-            $machine['realtime_status'] = $this->isMachineOnline(
-                $machine['heartbeat_at']
-            )
-                ? 'online'
-                : 'offline';
-        }
+        // Status machine mengikuti status yang diatur Admin
+        $machine['realtime_status'] = $machine['status'];
 
         // Data sensor terakhir
         $machine['sensor'] = [

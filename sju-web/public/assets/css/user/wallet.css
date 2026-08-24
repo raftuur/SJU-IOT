@@ -1,0 +1,412 @@
+/* ===========================================================
+   WALLET USER
+=========================================================== */
+
+.wallet-stats-grid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 24px;
+
+    margin-bottom: 24px;
+}
+
+
+/* ===========================================================
+   STAT CARD
+=========================================================== */
+
+.wallet-stat-card {
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    padding: 22px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 6px 20px rgba(15, 23, 42, .04);
+
+    transition: .2s ease;
+}
+
+.wallet-stat-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, .07);
+}
+
+
+/* ===========================================================
+   ICON
+=========================================================== */
+
+.wallet-stat-icon {
+    width: 56px;
+
+    height: 56px;
+
+    flex: 0 0 56px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 16px;
+
+    font-size: 23px;
+}
+
+.wallet-stat-icon.balance {
+    background: #DCFCE7;
+
+    color: #16A34A;
+}
+
+.wallet-stat-icon.earned {
+    background: #DBEAFE;
+
+    color: #2563EB;
+}
+
+.wallet-stat-icon.history {
+    background: #FEF3C7;
+
+    color: #D97706;
+}
+
+
+/* ===========================================================
+   CONTENT
+=========================================================== */
+
+.wallet-stat-content {
+    min-width: 0;
+}
+
+.wallet-stat-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #64748B;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+.wallet-stat-content h3 {
+    margin: 0;
+
+    color: #0F172A;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+    word-break: break-word;
+}
+
+
+/* ===========================================================
+   HISTORY PANEL
+=========================================================== */
+
+.wallet-history-panel {
+    width: 100%;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 6px 20px rgba(15, 23, 42, .04);
+}
+
+.wallet-history-header {
+    min-height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 18px 28px;
+
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.wallet-history-header h5 {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin: 0;
+
+    color: #0F172A;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.wallet-history-header h5 i {
+    color: #16A34A;
+}
+
+.wallet-history-body {
+    padding: 0;
+}
+
+
+/* ===========================================================
+   TABLE
+=========================================================== */
+
+.wallet-history-body .table-responsive {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.wallet-history-table {
+    width: 100%;
+
+    min-width: 700px;
+
+    border-collapse: collapse;
+}
+
+.wallet-history-table th {
+    padding: 14px 18px;
+
+    background: #F8FAFC;
+
+    border-bottom: 1px solid #E2E8F0;
+
+    color: #64748B;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.wallet-history-table td {
+    padding: 16px 18px;
+
+    border-bottom: 1px solid #F1F5F9;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+.wallet-history-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.wallet-history-table tbody tr:hover {
+    background: #F8FAFC;
+}
+
+
+/* ===========================================================
+   TYPE BADGE
+=========================================================== */
+
+.wallet-type-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 72px;
+
+    padding: 6px 11px;
+
+    border-radius: 999px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.wallet-type-badge.success {
+    background: #DCFCE7;
+
+    color: #15803D;
+}
+
+.wallet-type-badge.warning {
+    background: #FEF3C7;
+
+    color: #B45309;
+}
+
+.wallet-type-badge.primary {
+    background: #DBEAFE;
+
+    color: #2563EB;
+}
+
+.wallet-type-badge.secondary {
+    background: #F1F5F9;
+
+    color: #475569;
+}
+
+
+/* ===========================================================
+   EMPTY
+=========================================================== */
+
+.wallet-empty {
+    min-height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    text-align: center;
+}
+
+.wallet-empty-icon {
+    width: 64px;
+
+    height: 64px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-bottom: 16px;
+
+    border-radius: 50%;
+
+    background: #ECFDF5;
+
+    color: #16A34A;
+
+    font-size: 28px;
+}
+
+.wallet-empty h5 {
+    margin: 0 0 7px;
+
+    color: #0F172A;
+
+    font-size: 19px;
+
+    font-weight: 700;
+}
+
+.wallet-empty p {
+    margin: 0;
+
+    color: #64748B;
+
+    font-size: 14px;
+}
+
+
+/* ===========================================================
+   TABLET
+=========================================================== */
+
+@media (max-width: 992px) {
+
+    .wallet-stats-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width: 768px) {
+
+    .wallet-stats-grid {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    .wallet-stat-card {
+        padding: 18px;
+    }
+
+    .wallet-stat-content h3 {
+        font-size: 25px;
+    }
+
+    .wallet-history-header {
+        padding: 18px 20px;
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .wallet-stat-icon {
+        width: 50px;
+
+        height: 50px;
+
+        flex-basis: 50px;
+
+        border-radius: 14px;
+
+        font-size: 21px;
+    }
+
+    .wallet-stat-content h3 {
+        font-size: 23px;
+    }
+
+    .wallet-history-table {
+        min-width: 700px;
+    }
+
+}

@@ -2,99 +2,66 @@
 
     <div class="panel-header">
 
-        <h5>Aktivitas Terbaru</h5>
+        <h5>
+            Aktivitas Terbaru
+        </h5>
 
     </div>
 
     <div class="panel-body">
 
+        <?php if (!empty($activities)): ?>
 
-        <div class="activity-item">
+            <?php foreach ($activities as $activity): ?>
 
-            <div class="activity-icon bg-success">
-                <i class="bi bi-qr-code-scan"></i>
-            </div>
+                <div class="activity-item">
 
-            <div class="activity-content">
+                    <div class="activity-icon <?= esc($activity['color']); ?>">
 
-                <div class="activity-title">
-                    User berhasil scan QR Code
+                        <i class="bi <?= esc($activity['icon']); ?>"></i>
+
+                    </div>
+
+                    <div class="activity-content">
+
+                        <div class="activity-title">
+
+                            <?= esc($activity['title']); ?>
+
+                        </div>
+
+                        <div class="activity-time">
+
+                            <?= esc($activity['description']); ?>
+
+                            ·
+
+                            <?= date(
+                                'd/m/Y H:i',
+                                strtotime($activity['time'])
+                            ); ?>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
-                <div class="activity-time">
-                    Baru saja
-                </div>
+            <?php endforeach; ?>
 
-            </div>
+        <?php else: ?>
 
-        </div>
+            <div class="dashboard-empty">
 
+                <i class="bi bi-clock-history"></i>
 
-
-        <div class="activity-item">
-
-            <div class="activity-icon bg-primary">
-                <i class="bi bi-cpu"></i>
-            </div>
-
-            <div class="activity-content">
-
-                <div class="activity-title">
-                    Mesin RVM-01 siap digunakan
-                </div>
-
-                <div class="activity-time">
-                    Baru saja
-                </div>
-
-            </div>
-
-        </div>
-
-
-
-        <div class="activity-item">
-
-            <div class="activity-icon bg-warning">
-                <i class="bi bi-recycle"></i>
-            </div>
-
-            <div class="activity-content">
-
-                <div class="activity-title">
-                    Botol berhasil diterima
-                </div>
-
-                <div class="activity-time">
-                    Baru saja
-                </div>
+                <p>
+                    Belum ada aktivitas terbaru.
+                </p>
 
             </div>
 
-        </div>
-
-
-
-        <div class="activity-item">
-
-            <div class="activity-icon bg-info">
-                <i class="bi bi-coin"></i>
-            </div>
-
-            <div class="activity-content">
-
-                <div class="activity-title">
-                    Point berhasil ditambahkan
-                </div>
-
-                <div class="activity-time">
-                    Baru saja
-                </div>
-
-            </div>
-
-        </div>
-
+        <?php endif; ?>
 
     </div>
 

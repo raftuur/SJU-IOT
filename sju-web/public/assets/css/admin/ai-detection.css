@@ -267,3 +267,123 @@
     object-fit:contain;
 
 }
+/* ===========================================================
+   AI CAMERA
+=========================================================== */
+
+.camera-wrapper {
+    width: 100%;
+}
+
+.camera-preview {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+
+    background: #0F172A;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    aspect-ratio: 16 / 9;
+}
+
+.camera-preview video {
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    object-fit: cover;
+}
+
+.camera-placeholder {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: #94A3B8;
+
+    background: #F8FAFC;
+}
+
+.camera-placeholder i {
+    font-size: 36px;
+}
+
+.camera-placeholder span {
+    font-size: 14px;
+}
+
+
+/* ===========================================================
+   CAMERA ACTION
+=========================================================== */
+
+.camera-wrapper + .d-flex {
+    flex-wrap: wrap;
+}
+
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width: 576px) {
+
+    .camera-preview {
+        aspect-ratio: 4 / 3;
+
+        border-radius: 12px;
+    }
+
+    .camera-wrapper + .d-flex {
+        display: grid !important;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 8px !important;
+    }
+
+    .camera-wrapper + .d-flex button {
+        width: 100%;
+
+        min-height: 44px;
+
+        font-size: 13px;
+    }
+
+    #btnStopCamera {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* ===========================================================
+   VERY SMALL MOBILE
+=========================================================== */
+
+@media (max-width: 400px) {
+
+    .camera-wrapper + .d-flex {
+        grid-template-columns: 1fr;
+    }
+
+    #btnStopCamera {
+        grid-column: auto;
+    }
+
+}

@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Libraries\AiService;
 use App\Services\AiDetectionService;
-use App\Services\TransactionService;
 use Ramsey\Uuid\Uuid;
 
 class AiDetectionController extends BaseController
@@ -57,19 +56,27 @@ class AiDetectionController extends BaseController
 
         return view('admin/ai_detection/show', [
 
-            'title'         => 'Detail AI Detection',
+            'title'        => 'Detail AI Detection',
 
-            'pageTitle'     => 'Detail AI Detection',
+            'pageTitle'    => 'Detail AI Detection',
 
-            'pageSubtitle'  => 'Informasi hasil deteksi AI.',
+            'pageSubtitle' => 'Informasi hasil deteksi AI.',
 
-            'detection'     => $detection,
+            'detection'    => $detection,
 
         ]);
     }
 
     /**
      * Test AI Detection
+     *
+     * Khusus untuk pengujian AI.
+     *
+     * Tidak membuat:
+     * - Transaction
+     * - Wallet
+     * - Point
+     * - Machine Session
      */
     public function test()
     {
@@ -97,6 +104,7 @@ class AiDetectionController extends BaseController
 
         $imagePath = $uploadPath . DIRECTORY_SEPARATOR . $fileName;
 
+        // Jalankan AI
         $ai = new AiService();
 
         $result = $ai->detect($imagePath);
@@ -105,60 +113,61 @@ class AiDetectionController extends BaseController
 
             return redirect()
                 ->back()
-                ->with('error', is_array($result['message'])
-                    ? json_encode($result['message'], JSON_PRETTY_PRINT)
-                    : $result['message']);
+                ->with(
+                    'error',
+                    is_array($result['message'])
+                        ? json_encode(
+                            $result['message'],
+                            JSON_PRETTY_PRINT
+                        )
+                        : $result['message']
+                );
 
         }
 
-        $detectionId = $this->aiDetectionService->generateDetectionId();
+        // Generate Detection ID
+        $detectionId =
+            $this->aiDetectionService->generateDetectionId();
 
-        $save = $this->aiDetectionService->storeAndCreateTransaction(
+        // Simpan hasil pengujian AI saja
+        $save = $this->aiDetectionService->store([
 
-            [
+            'uuid' => Uuid::uuid4()->toString(),
 
-                'uuid' => Uuid::uuid4()->toString(),
+            'detection_id' => $detectionId,
 
-                'detection_id' => $detectionId,
+            'bottle' => $result['summary']['bottle'],
 
-                'bottle' => $result['summary']['bottle'],
+            'cap' => $result['summary']['cap'],
 
-                'cap' => $result['summary']['cap'],
+            'label' => $result['summary']['label'],
 
-                'label' => $result['summary']['label'],
+            'confidence' => $result['confidence'],
 
-                'confidence' => $result['confidence'],
+            'original_image' => $result['original_image'],
 
-                'original_image' => $result['original_image'],
+            'detected_image' => $result['detected_image'],
 
-                'detected_image' => $result['detected_image'],
+            'json_result' => json_encode($result),
 
-                'json_result' => json_encode($result),
+        ]);
 
-            ],
+        if (! $save) {
 
-            [
+            return redirect()
+                ->back()
+                ->with(
+                    'error',
+                    'Hasil AI gagal disimpan.'
+                );
 
-                'machine_session_id' => 1,
-
-                'user_id' => 1,
-
-                'machine_id' => 1,
-
-                'weight' => 0.35,
-
-                'bottle_count' => 1,
-
-                'point_earned' => 30,
-
-                'confidence' => $result['confidence'],
-
-            ]
-
-        );
+        }
 
         return redirect()
             ->to('/ai-detection')
-            ->with('success', 'AI Detection berhasil dijalankan.');
+            ->with(
+                'success',
+                'AI Detection berhasil diuji.'
+            );
     }
 }

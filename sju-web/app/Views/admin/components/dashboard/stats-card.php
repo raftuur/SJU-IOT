@@ -11,7 +11,7 @@
         </div>
 
         <div class="stats-value">
-            0
+            <?= number_format($totalUser ?? 0, 0, ',', '.'); ?>
         </div>
 
         <div class="stats-footer">
@@ -32,7 +32,7 @@
         </div>
 
         <div class="stats-value">
-            1
+            <?= number_format($totalMachine ?? 0, 0, ',', '.'); ?>
         </div>
 
         <div class="stats-footer">
@@ -53,7 +53,7 @@
         </div>
 
         <div class="stats-value">
-            0
+            <?= number_format($totalTransaction ?? 0, 0, ',', '.'); ?>
         </div>
 
         <div class="stats-footer">
@@ -74,7 +74,7 @@
         </div>
 
         <div class="stats-value">
-            0
+            <?= number_format($totalBottle ?? 0, 0, ',', '.'); ?>
         </div>
 
         <div class="stats-footer">
@@ -82,6 +82,5 @@
         </div>
 
     </div>
-
 
 </div>

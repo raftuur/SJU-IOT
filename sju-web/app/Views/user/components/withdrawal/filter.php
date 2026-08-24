@@ -1,121 +1,117 @@
-<form method="get" action="<?= site_url('user/withdrawal'); ?>">
+<form
+    method="get"
+    action="<?= site_url('user/withdrawal'); ?>">
 
-    <div class="filter-card">
+    <div class="withdrawal-filter">
 
-        <div class="filter-header">
+        <div class="withdrawal-filter-header">
 
             <h5>
-
                 <i class="bi bi-funnel me-2"></i>
-
                 Filter Withdrawal
-
             </h5>
 
         </div>
 
-        <div class="filter-body">
 
-            <div class="filter-grid">
+        <div class="withdrawal-filter-body">
 
-                <div class="filter-item filter-search">
+            <div class="withdrawal-filter-form">
 
-                    <label>
 
+                <div class="withdrawal-filter-group">
+
+                    <label for="withdrawalSearch">
                         Cari Withdrawal
-
                     </label>
 
-                    <div class="search-box">
-
-                        <i class="bi bi-search"></i>
-
-                        <input
-                            type="text"
-                            name="search"
-                            class="form-control-custom"
-                            value="<?= esc($search ?? ''); ?>"
-                            placeholder="Cari kode withdrawal...">
-
-                    </div>
+                    <input
+                        type="text"
+                        id="withdrawalSearch"
+                        name="search"
+                        class="form-control"
+                        value="<?= esc($search ?? ''); ?>"
+                        placeholder="Cari kode withdrawal...">
 
                 </div>
 
-                <div class="filter-item">
 
-                    <label>
+                <div class="withdrawal-filter-group">
 
+                    <label for="withdrawalStatus">
                         Status
-
                     </label>
 
                     <select
+                        id="withdrawalStatus"
                         name="status"
-                        class="form-select-custom">
+                        class="form-select">
 
                         <option value="">
-
                             Semua Status
-
                         </option>
 
                         <option
                             value="pending"
-                            <?= ($status ?? '') == 'pending' ? 'selected' : ''; ?>>
-
+                            <?= ($status ?? '') === 'pending'
+                                ? 'selected'
+                                : ''; ?>>
                             Pending
-
                         </option>
 
                         <option
                             value="processing"
-                            <?= ($status ?? '') == 'processing' ? 'selected' : ''; ?>>
-
+                            <?= ($status ?? '') === 'processing'
+                                ? 'selected'
+                                : ''; ?>>
                             Processing
-
                         </option>
 
                         <option
                             value="completed"
-                            <?= ($status ?? '') == 'completed' ? 'selected' : ''; ?>>
-
+                            <?= ($status ?? '') === 'completed'
+                                ? 'selected'
+                                : ''; ?>>
                             Completed
-
                         </option>
 
                         <option
                             value="rejected"
-                            <?= ($status ?? '') == 'rejected' ? 'selected' : ''; ?>>
-
+                            <?= ($status ?? '') === 'rejected'
+                                ? 'selected'
+                                : ''; ?>>
                             Rejected
-
                         </option>
 
                     </select>
 
                 </div>
 
-                <div class="filter-action">
+
+                <div class="withdrawal-filter-actions">
 
                     <button
                         type="submit"
-                        class="btn-search">
+                        class="btn btn-success">
 
-                        <i class="bi bi-search"></i>
+                        <i class="bi bi-search me-1"></i>
 
                         Cari
 
                     </button>
 
+
                     <a
                         href="<?= site_url('user/withdrawal'); ?>"
-                        class="btn-reset">
+                        class="btn-reset"
+                        title="Reset Filter">
 
                         <i class="bi bi-arrow-clockwise"></i>
 
                     </a>
 
                 </div>
+
 
             </div>
 

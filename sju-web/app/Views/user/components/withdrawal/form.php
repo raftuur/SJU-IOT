@@ -1,154 +1,150 @@
-<div class="dashboard-panel">
+<div class="withdrawal-form-panel">
 
-    <div class="panel-header">
+    <div class="withdrawal-form-header">
 
         <h5>
-
-            <i class="bi bi-cash-stack me-2"></i>
-
+            <i class="bi bi-cash-stack"></i>
             Ajukan Withdrawal
-
         </h5>
 
     </div>
 
-    <div class="panel-body">
 
-        <form method="post" action="<?= site_url('user/withdrawal/create'); ?>">
+    <div class="withdrawal-form-body">
+
+        <form
+            method="post"
+            action="<?= site_url('user/withdrawal/create'); ?>">
 
             <?= csrf_field(); ?>
 
-            <div class="row">
 
-                <div class="col-md-6 mb-4">
+            <div class="withdrawal-form-grid">
 
-                    <label class="form-label">
 
+                <!-- Jumlah Withdrawal -->
+
+                <div class="withdrawal-form-group">
+
+                    <label for="withdrawalAmount">
                         Jumlah Withdrawal
-
                     </label>
 
                     <input
                         type="number"
+                        id="withdrawalAmount"
                         name="amount"
-                        class="form-control-custom"
+                        class="form-control"
                         placeholder="Masukkan jumlah point"
+                        min="1"
                         required>
 
                 </div>
 
-                <div class="col-md-6 mb-4">
 
-                    <label class="form-label">
+                <!-- Bank / E-Wallet -->
 
+                <div class="withdrawal-form-group">
+
+                    <label for="withdrawalBank">
                         Bank / E-Wallet
-
                     </label>
 
                     <select
+                        id="withdrawalBank"
                         name="bank_code"
-                        class="form-select-custom"
+                        class="form-select"
                         required>
 
                         <option value="">
-
-                            Pilih Bank
-
+                            Pilih Bank / E-Wallet
                         </option>
 
                         <option value="bca">
-
                             BCA
-
                         </option>
 
                         <option value="bni">
-
                             BNI
-
                         </option>
 
                         <option value="bri">
-
                             BRI
-
                         </option>
 
                         <option value="mandiri">
-
                             Mandiri
-
                         </option>
 
                         <option value="gopay">
-
                             GoPay
-
                         </option>
 
                         <option value="ovo">
-
                             OVO
-
                         </option>
 
                         <option value="dana">
-
                             DANA
-
                         </option>
 
                         <option value="shopeepay">
-
                             ShopeePay
-
                         </option>
 
                     </select>
 
                 </div>
 
-                <div class="col-md-6 mb-4">
 
-                    <label class="form-label">
+                <!-- Nama Rekening -->
 
+                <div class="withdrawal-form-group">
+
+                    <label for="accountName">
                         Nama Pemilik Rekening
-
                     </label>
 
                     <input
                         type="text"
+                        id="accountName"
                         name="account_name"
-                        class="form-control-custom"
+                        class="form-control"
                         placeholder="Nama sesuai rekening"
                         required>
 
                 </div>
 
-                <div class="col-md-6 mb-4">
 
-                    <label class="form-label">
+                <!-- Nomor Rekening -->
 
+                <div class="withdrawal-form-group">
+
+                    <label for="accountNumber">
                         Nomor Rekening
-
                     </label>
 
                     <input
                         type="text"
+                        id="accountNumber"
                         name="account_number"
-                        class="form-control-custom"
+                        class="form-control"
                         placeholder="Masukkan nomor rekening"
                         required>
 
                 </div>
 
+
             </div>
 
-            <div class="d-flex justify-content-end gap-2">
+
+            <!-- Action -->
+
+            <div class="withdrawal-form-actions">
 
                 <a
                     href="<?= site_url('user/withdrawal'); ?>"
-                    class="btn-back">
+                    class="btn btn-back">
 
                     <i class="bi bi-arrow-left"></i>
 
@@ -156,9 +152,10 @@
 
                 </a>
 
+
                 <button
                     type="submit"
-                    class="btn-search">
+                    class="btn btn-success">
 
                     <i class="bi bi-send"></i>
 
@@ -167,6 +164,7 @@
                 </button>
 
             </div>
+
 
         </form>
 

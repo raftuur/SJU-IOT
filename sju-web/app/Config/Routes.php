@@ -168,6 +168,22 @@ $routes->post('withdrawal/approve/(:num)', 'WithdrawalController::approve/$1', [
     'filter' => 'auth'
 ]);
 
+
+/*
+|--------------------------------------------------------------------------
+| Setting
+|--------------------------------------------------------------------------
+*/
+
+$routes->get('setting', 'SettingController::index', [
+    'filter' => 'auth'
+]);
+
+$routes->post('setting/update', 'SettingController::update', [
+    'filter' => 'auth'
+]);
+
+
 /*
 |--------------------------------------------------------------------------
 | AI Detection
@@ -286,5 +302,12 @@ $routes->group('user', ['filter' => 'auth'], function ($routes) {
     $routes->post('withdrawal/create', 'User\WithdrawalController::store');
     $routes->get('withdrawal/(:num)', 'User\WithdrawalController::show/$1');
 
+    /*
+    |--------------------------------------------------------------------------
+    | Profile
+    |--------------------------------------------------------------------------
+    */
+
     $routes->get('profile', 'User\ProfileController::index');
+    $routes->post('profile/avatar', 'User\ProfileController::updateAvatar');
 });

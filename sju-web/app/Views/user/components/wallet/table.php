@@ -1,42 +1,51 @@
-<div class="dashboard-panel">
+<div class="wallet-history-panel">
 
-    <div class="panel-header">
+    <div class="wallet-history-header">
 
         <h5>
-
-            <i class="bi bi-clock-history me-2"></i>
-
+            <i class="bi bi-clock-history"></i>
             Riwayat Transaksi Wallet
-
         </h5>
 
     </div>
 
-    <div class="panel-body">
+
+    <div class="wallet-history-body">
 
         <?php if (!empty($histories)): ?>
 
             <div class="table-responsive">
 
-                <table class="table table-hover align-middle">
+                <table class="wallet-history-table">
 
                     <thead>
 
                         <tr>
 
-                            <th width="180">Tanggal</th>
+                            <th>
+                                Tanggal
+                            </th>
 
-                            <th width="120">Tipe</th>
+                            <th>
+                                Tipe
+                            </th>
 
-                            <th class="text-end">Point</th>
+                            <th class="text-end">
+                                Point
+                            </th>
 
-                            <th class="text-end">Saldo Akhir</th>
+                            <th class="text-end">
+                                Saldo Akhir
+                            </th>
 
-                            <th>Keterangan</th>
+                            <th>
+                                Keterangan
+                            </th>
 
                         </tr>
 
                     </thead>
+
 
                     <tbody>
 
@@ -44,23 +53,19 @@
 
                             <?php
 
-                                $badge = 'secondary';
+                            $type = strtolower(
+                                $history['type'] ?? ''
+                            );
 
-                                switch ($history['type']) {
+                            $badge = 'secondary';
 
-                                    case 'earn':
-                                        $badge = 'success';
-                                        break;
-
-                                    case 'redeem':
-                                        $badge = 'warning';
-                                        break;
-
-                                    case 'withdraw':
-                                        $badge = 'primary';
-                                        break;
-
-                                }
+                            if ($type === 'earn') {
+                                $badge = 'success';
+                            } elseif ($type === 'redeem') {
+                                $badge = 'warning';
+                            } elseif ($type === 'withdraw') {
+                                $badge = 'primary';
+                            }
 
                             ?>
 
@@ -68,35 +73,58 @@
 
                                 <td>
 
-                                    <?= date('d M Y H:i', strtotime($history['created_at'])) ?>
+                                    <?= !empty($history['created_at'])
+                                        ? date(
+                                            'd M Y H:i',
+                                            strtotime(
+                                                $history['created_at']
+                                            )
+                                        )
+                                        : '-'; ?>
 
                                 </td>
 
+
                                 <td>
 
-                                    <span class="badge bg-<?= $badge ?>">
+                                    <span class="wallet-type-badge <?= $badge ?>">
 
-                                        <?= ucfirst($history['type']) ?>
+                                        <?= ucfirst($type ?: '-'); ?>
 
                                     </span>
 
                                 </td>
 
-                                <td class="text-end">
-
-                                    <?= number_format($history['point'], 0, ',', '.') ?>
-
-                                </td>
 
                                 <td class="text-end">
 
-                                    <?= number_format($history['balance_after'], 0, ',', '.') ?>
+                                    <?= number_format(
+                                        $history['point'] ?? 0,
+                                        0,
+                                        ',',
+                                        '.'
+                                    ); ?>
 
                                 </td>
+
+
+                                <td class="text-end">
+
+                                    <?= number_format(
+                                        $history['balance_after'] ?? 0,
+                                        0,
+                                        ',',
+                                        '.'
+                                    ); ?>
+
+                                </td>
+
 
                                 <td>
 
-                                    <?= esc($history['description']) ?>
+                                    <?= esc(
+                                        $history['description'] ?? '-'
+                                    ); ?>
 
                                 </td>
 
@@ -112,13 +140,23 @@
 
         <?php else: ?>
 
-            <?= $this->include('admin/components/empty-state', [
+            <div class="wallet-empty">
 
-                'title' => 'Belum Ada Riwayat Transaksi',
+                <div class="wallet-empty-icon">
 
-                'description' => 'Riwayat transaksi wallet Anda akan muncul di sini.'
+                    <i class="bi bi-wallet2"></i>
 
-            ]) ?>
+                </div>
+
+                <h5>
+                    Belum Ada Riwayat Transaksi
+                </h5>
+
+                <p>
+                    Riwayat transaksi wallet Anda akan muncul di sini.
+                </p>
+
+            </div>
 
         <?php endif; ?>
 

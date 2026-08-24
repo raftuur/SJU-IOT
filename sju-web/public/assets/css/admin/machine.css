@@ -1,0 +1,172 @@
+/* ===========================================================
+   MACHINE MANAGEMENT
+=========================================================== */
+
+.machine-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+.machine-table {
+    width: 100%;
+
+    min-width: 850px;
+
+    margin-bottom: 0;
+
+    white-space: nowrap;
+}
+
+
+/* ===========================================================
+   TABLE
+=========================================================== */
+
+.machine-table th {
+    padding: 16px 20px;
+
+    background: #F8FAFC;
+
+    color: #64748B;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.machine-table td {
+    padding: 18px 20px;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    white-space: nowrap;
+
+    vertical-align: middle;
+
+    border-bottom: 1px solid #EEF2F7;
+}
+
+
+/* ===========================================================
+   ACTION
+=========================================================== */
+
+.machine-table .table-action {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    white-space: nowrap;
+}
+
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width: 576px) {
+
+    .machine-table-wrapper {
+        overflow-x: auto;
+    }
+
+    .machine-table {
+        min-width: 850px;
+    }
+
+    .machine-table th,
+    .machine-table td {
+        padding: 14px 16px;
+    }
+
+}
+/* ===========================================================
+   MACHINE FILTER BUTTON
+=========================================================== */
+
+.btn-search {
+    border: none;
+
+    background: #16A34A;
+    color: #FFFFFF;
+
+    height: 48px;
+
+    padding: 0 24px;
+
+    border-radius: 12px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.btn-search:hover {
+    background: #15803D;
+}
+
+.btn-reset {
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid #CBD5E1;
+
+    background: #FFFFFF;
+    color: #475569;
+
+    border-radius: 12px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    transition: .2s ease;
+}
+
+.btn-reset:hover {
+    background: #F8FAFC;
+    color: #16A34A;
+}
+/* ===========================================================
+   MACHINE ACTION
+=========================================================== */
+
+@media (max-width: 576px) {
+
+    .machine-page-action {
+        width: 100%;
+    }
+
+    .machine-page-action > div {
+        width: 100%;
+    }
+
+    .machine-page-action .btn-custom {
+        flex: 1;
+    }
+
+}

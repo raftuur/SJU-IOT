@@ -496,3 +496,157 @@
     color:#FFFFFF;
 
 }
+/* ===========================================================
+   REWARD HISTORY
+=========================================================== */
+
+.reward-history-panel {
+    width: 100%;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 6px 20px rgba(15, 23, 42, .04);
+}
+
+
+/* HEADER */
+
+.reward-history-header {
+    min-height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 18px 28px;
+
+    border-bottom: 1px solid #E2E8F0;
+
+    box-sizing: border-box;
+}
+
+.reward-history-title h5 {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin: 0;
+
+    color: #0F172A;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.reward-history-title h5 i {
+    color: #16A34A;
+}
+
+
+/* BODY */
+
+.reward-history-body {
+    padding: 0;
+}
+
+
+/* TABLE */
+
+.reward-history-body .table-responsive {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+.reward-table {
+    width: 100%;
+
+    margin: 0;
+
+    border-collapse: collapse;
+}
+
+.reward-table thead th {
+    padding: 14px 18px;
+
+    background: #F8FAFC;
+
+    border-bottom: 1px solid #E2E8F0;
+
+    color: #64748B;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+.reward-table tbody td {
+    padding: 16px 18px;
+
+    border-bottom: 1px solid #F1F5F9;
+
+    color: #334155;
+
+    font-size: 14px;
+
+    vertical-align: middle;
+}
+
+.reward-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.reward-table tbody tr:hover {
+    background: #F8FAFC;
+}
+
+.reward-table tbody td strong {
+    color: #0F172A;
+
+    font-weight: 600;
+}
+
+
+/* TOTAL */
+
+.reward-history-header .total-badge {
+    flex-shrink: 0;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .reward-history-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        padding: 18px 20px;
+    }
+
+    .reward-history-header .total-badge {
+        align-self: flex-start;
+    }
+
+    .reward-table {
+        min-width: 760px;
+    }
+
+}

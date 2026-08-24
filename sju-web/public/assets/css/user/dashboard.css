@@ -1,0 +1,341 @@
+/* ===========================================================
+   USER DASHBOARD
+=========================================================== */
+
+.dashboard-grid {
+    display: grid;
+
+    grid-template-columns: 2fr 1fr;
+
+    gap: 24px;
+
+    margin-top: 24px;
+}
+
+
+/* ===========================================================
+   STATS
+=========================================================== */
+
+.stats-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 20px;
+
+    margin-bottom: 24px;
+}
+
+.stats-card {
+    min-width: 0;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    transition: 0.2s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .07);
+}
+
+.stats-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background: #DCFCE7;
+
+    color: #16A34A;
+
+    font-size: 21px;
+
+    margin-bottom: 15px;
+}
+
+.stats-title {
+    color: #64748B;
+
+    font-size: 13px;
+
+    font-weight: 500;
+}
+
+.stats-value {
+    margin-top: 7px;
+
+    color: #0F172A;
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    line-height: 1.2;
+
+    word-break: break-word;
+}
+
+.stats-footer {
+    margin-top: 12px;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #F1F5F9;
+
+    color: #94A3B8;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* ===========================================================
+   PANEL
+=========================================================== */
+
+.dashboard-panel {
+    min-width: 0;
+
+    background: #FFFFFF;
+
+    border: 1px solid #E2E8F0;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    overflow: hidden;
+}
+
+.panel-header {
+    margin-bottom: 18px;
+}
+
+.panel-header h5 {
+    margin: 0;
+
+    color: #0F172A;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.panel-body {
+    min-width: 0;
+}
+
+
+/* ===========================================================
+   TRANSACTION TABLE
+=========================================================== */
+
+.dashboard-panel .table {
+    margin-bottom: 0;
+
+    font-size: 13px;
+}
+
+.dashboard-panel .table th {
+    color: #64748B;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.dashboard-panel .table td {
+    color: #334155;
+
+    vertical-align: middle;
+
+    white-space: nowrap;
+}
+
+.dashboard-panel .table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/* ===========================================================
+   QR CODE
+=========================================================== */
+
+.dashboard-panel .text-center img {
+    display: block;
+
+    width: 100%;
+
+    max-width: 200px;
+
+    height: auto;
+
+    margin: 5px auto 10px;
+}
+
+.dashboard-panel .text-center .display-1 {
+    font-size: 70px;
+}
+
+.dashboard-panel .text-center h6 {
+    color: #1E293B;
+
+    font-weight: 600;
+}
+
+.dashboard-panel .text-center p {
+    max-width: 280px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ===========================================================
+   BUTTON
+=========================================================== */
+
+.dashboard-panel .btn {
+    border-radius: 9px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+
+/* ===========================================================
+   EMPTY STATE
+=========================================================== */
+
+.dashboard-panel .empty-state {
+    padding: 30px 15px;
+}
+
+
+/* ===========================================================
+   TABLET
+=========================================================== */
+
+@media (max-width: 1200px) {
+
+    .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ===========================================================
+   TABLET
+=========================================================== */
+
+@media (max-width: 992px) {
+
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width: 576px) {
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+    }
+
+    .dashboard-grid {
+        gap: 15px;
+
+        margin-top: 15px;
+    }
+
+    .stats-card {
+        padding: 18px;
+
+        border-radius: 16px;
+    }
+
+    .stats-icon {
+        width: 44px;
+        height: 44px;
+
+        margin-bottom: 12px;
+
+        font-size: 19px;
+    }
+
+    .stats-value {
+        font-size: 27px;
+    }
+
+    .dashboard-panel {
+        padding: 16px;
+
+        border-radius: 16px;
+    }
+
+    .panel-header {
+        margin-bottom: 15px;
+    }
+
+    .panel-header h5 {
+        font-size: 16px;
+    }
+
+    .dashboard-panel .table {
+        font-size: 12px;
+    }
+
+    .dashboard-panel .text-center img {
+        max-width: 180px;
+    }
+
+}
+
+
+/* ===========================================================
+   VERY SMALL MOBILE
+=========================================================== */
+
+@media (max-width: 400px) {
+
+    .stats-card {
+        padding: 16px;
+    }
+
+    .stats-value {
+        font-size: 25px;
+    }
+
+}

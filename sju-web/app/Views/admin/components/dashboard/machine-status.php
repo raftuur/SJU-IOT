@@ -9,66 +9,95 @@
 
     </div>
 
-
     <div class="panel-body">
 
+        <?php if (!empty($machines)): ?>
 
-        <div class="machine-status">
+            <?php foreach ($machines as $machine): ?>
 
+                <div class="machine-status mb-3">
 
-            <div class="machine-item">
+                    <div class="machine-item">
 
-                <div>
+                        <div>
 
-                    <div class="machine-name">
-                        RVM-01
+                            <div class="machine-name">
+                                <?= esc($machine['machine_code']); ?>
+                            </div>
+
+                            <div class="machine-info">
+                                <?= esc($machine['machine_name']); ?>
+                            </div>
+
+                        </div>
+
+                        <?php if ($machine['status'] === 'online'): ?>
+
+                            <span class="badge bg-success">
+                                Online
+                            </span>
+
+                        <?php elseif ($machine['status'] === 'maintenance'): ?>
+
+                            <span class="badge bg-warning text-dark">
+                                Maintenance
+                            </span>
+
+                        <?php else: ?>
+
+                            <span class="badge bg-danger">
+                                Offline
+                            </span>
+
+                        <?php endif; ?>
+
                     </div>
 
-                    <div class="machine-info">
-                        Reverse Vending Machine
+                    <div class="machine-detail">
+
+                        <div>
+
+                            <small>
+                                Lokasi
+                            </small>
+
+                            <strong>
+                                <?= esc($machine['location']); ?>
+                            </strong>
+
+                        </div>
+
+                        <div>
+
+                            <small>
+                                IP Address
+                            </small>
+
+                            <strong>
+                                <?= esc($machine['ip_address'] ?? '-'); ?>
+                            </strong>
+
+                        </div>
+
                     </div>
 
                 </div>
 
+            <?php endforeach; ?>
 
-                <span class="badge bg-success">
-                    Online
-                </span>
+        <?php else: ?>
 
+            <div class="text-center text-muted py-4">
+
+                <i class="bi bi-cpu fs-2"></i>
+
+                <p class="mt-2 mb-0">
+                    Belum ada machine.
+                </p>
 
             </div>
 
-
-
-            <div class="machine-detail">
-
-                <div>
-                    <small>
-                        Last Heartbeat
-                    </small>
-
-                    <strong>
-                        Baru saja
-                    </strong>
-                </div>
-
-
-                <div>
-                    <small>
-                        IP Address
-                    </small>
-
-                    <strong>
-                        192.168.137.26
-                    </strong>
-                </div>
-
-
-            </div>
-
-
-        </div>
-
+        <?php endif; ?>
 
     </div>
 

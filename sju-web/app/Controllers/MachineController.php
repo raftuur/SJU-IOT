@@ -45,19 +45,6 @@ class MachineController extends BaseController
             ->orderBy('id', 'ASC')
             ->paginate($perPage);
 
-        foreach ($machines as &$machine) {
-            if ($machine['status'] === 'maintenance') {
-                $machine['realtime_status'] = 'maintenance';
-            } else {
-                $machine['realtime_status'] = $this->monitoringService->isMachineOnline(
-                    $machine['heartbeat_at']
-                )
-                    ? 'online'
-                    : 'offline';
-            }
-        }
-        unset($machine);
-
         $pager = $this->machineModel->pager;
 
         return view('admin/machine/index', [

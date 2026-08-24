@@ -556,3 +556,132 @@
     }
 
 }
+/* ===========================================================
+   SENSOR MACHINE SELECT
+=========================================================== */
+
+.sensor-panel-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.sensor-machine-form {
+    margin: 0;
+}
+
+.sensor-machine-select {
+    min-width: 250px;
+
+    padding: 9px 12px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #CBD5E1;
+
+    border-radius: 10px;
+
+    color: #0F172A;
+
+    font-size: 13px;
+
+    outline: none;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.sensor-machine-select:hover {
+    border-color: #94A3B8;
+}
+
+.sensor-machine-select:focus {
+    border-color: #16A34A;
+
+    box-shadow: 0 0 0 3px rgba(22, 163, 74, .10);
+}
+
+.sensor-machine-name {
+    margin-bottom: 18px;
+
+    color: #64748B;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* ===========================================================
+   DASHBOARD EMPTY STATE
+=========================================================== */
+
+.dashboard-empty {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    color: #94A3B8;
+}
+
+.dashboard-empty i {
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-size: 32px;
+}
+
+.dashboard-empty p {
+    margin: 0;
+
+    font-size: 14px;
+}
+
+
+/* ===========================================================
+   RESPONSIVE SENSOR HEADER
+=========================================================== */
+
+@media (max-width: 768px) {
+
+    .sensor-panel-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+    .sensor-machine-form {
+        width: 100%;
+    }
+
+    .sensor-machine-select {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+}
+
+
+/* ===========================================================
+   SMALL MOBILE
+=========================================================== */
+
+@media (max-width: 576px) {
+
+    .sensor-panel-header {
+        gap: 12px;
+    }
+
+    .sensor-machine-select {
+        font-size: 12px;
+
+        padding: 8px 10px;
+    }
+
+}
