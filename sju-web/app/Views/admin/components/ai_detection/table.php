@@ -102,7 +102,7 @@
                         <td>
 
                             <img
-                                src="http://127.0.0.1:8000<?= esc($row['detected_image']); ?>"
+                                src="<?= base_url($row['detected_image']); ?>"
                                 alt="Detection"
                                 class="img-thumbnail detection-thumb">
 
