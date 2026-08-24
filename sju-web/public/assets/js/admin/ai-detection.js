@@ -401,12 +401,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     : '<span class="badge bg-danger">INVALID</span>';
 
             document.getElementById("originalImage").src =
-                "http://127.0.0.1:8000" +
-                this.dataset.originalImage;
+                "/ai-uploads" + this.dataset.originalImage.replace("/uploads", "");
 
             document.getElementById("detectedImage").src =
-                "http://127.0.0.1:8000" +
-                this.dataset.detectedImage;
+                "/ai-uploads" + this.dataset.detectedImage.replace("/uploads", "");
 
         });
 
